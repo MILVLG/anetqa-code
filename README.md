@@ -1,10 +1,10 @@
 # Code for ANETQA baselines
 
-This repository contains code for our baselines HCRN, Clipbert, and all-in-one. For all three baselines, we used their code for the FrameQA questions in the TGIF-QA benchmark, then adjusted to fit our data structure.
+This repository contains code for our baselines HCRN, ClipBERT, and all-in-one. For all three baselines, we used their code for the FrameQA questions in the TGIF-QA benchmark, then adjusted to fit our data structure.
 
 ## results
 
-| val acc | hcrn | hcrn w/o vision | clipbert | clipbert w/o vision | all-in-one-base | all-in-one-base w/o vision |
+| val acc | hcrn | hcrn w/o vision | ClipBERT | ClipBERT w/o vision | all-in-one-base | all-in-one-base w/o vision |
 | ------- | ---- | --------------- | -------- | ------------------- | --------------- | -------------------------- |
 | open    |      |                 |          |                     |                 |                            |
 | binary  |      |                 |          |                     |                 |                            |
@@ -21,7 +21,7 @@ We shared appearance features across models for consistency (RESNET for appearan
 
 ### Images
 
-For Clipbert and all-in-one, both of them need sample images from videos, in consideration of training speed, we sampled the first and the last two frames of each second from the video in the form of pictures for training.(you'd better store them in ssd)
+For ClipBERT and all-in-one, both of them need sample images from videos, in consideration of training speed, we sampled the first and the last two frames of each second from the video in the form of pictures for training.(you'd better store them in ssd)
 
 You can download ActivityNet videos [here]()
 
@@ -33,7 +33,7 @@ python sample_imgs.py
 
 ### Questions formatted
 
-HCRN use .csv version, both Clipbert and all-in-one use .jsonl version. you can find the questions in a .csv and .jsonl format stored [here]() 
+HCRN use .csv version, both ClipBERT and all-in-one use .jsonl version. you can find the questions in a .csv and .jsonl format stored [here]() 
 
 ## Models
 
@@ -88,7 +88,7 @@ python eval_result.py
 - tgif-qa_frameqa_appearance_feat.h5
 - tgif-qa_frameqa_motion_feat.h5
 
-### Clipbert
+### ClipBERT
 
 
 
