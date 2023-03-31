@@ -78,7 +78,7 @@ class TGIFDataset(BaseDataset):
         else:
             imgs= np.zeros((3,512,512,3))
             for i in range(3):
-                img = cv2.imread(f"/meta_data/val_imgs/{video_name}_{i}.jpg")
+                img = cv2.imread(f"/meta_data/imgs/{video_name}_{i}.jpg")
                 imgs[i]=img
             imgs = torch.tensor(imgs)
             imgs = imgs.permute(0, 3, 1, 2).type(torch.FloatTensor)

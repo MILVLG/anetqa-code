@@ -85,7 +85,7 @@ Find the code and set-up instructions on the [ClipBERT Github](https://github.co
 
 #### Sample Images
 
-- Download ActivityNet Videos [here](http://activity-net.org/)
+- Download ActivityNet Videos [here](http://activity-net.org/) and train/val/test video list [here]()
 - Use `sample_imgs_clipbert.py` to sample images
 
 - Revise the path in `src\datasets\dataset_base.py` 
