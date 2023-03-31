@@ -59,11 +59,9 @@ Test:`python validate.py --cfg configs/acqa.yml`
 
 #### View details of result
 
-- change the path of val results
+Download the list of qa_id under different classification systems [here]()
 
-```python
-python eval_result.py
-```
+you can use them to analyze the details of the results
 
 #### Updated and added code files
 
