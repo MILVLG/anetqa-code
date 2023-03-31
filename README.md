@@ -1,6 +1,6 @@
-# Code for ANETQA baselines
+# Code for ANetQA baselines
 
-This repository contains code for our baselines HCRN, ClipBERT, and all-in-one. For all three baselines, we used their code for the FrameQA questions in the TGIF-QA benchmark, then adjusted to fit our data structure.
+This repository contains code for our baselines HCRN, ClipBERT, and all-in-one. For all three baselines, we used their code for the FrameQA questions in the TGIF-QA benchmark, then adjusted to fit our data structure. You can download ANetQA from our [website](https://milvlg.github.io/anetqa).
 
 ## results
 
@@ -114,7 +114,7 @@ Find the code and set-up instructions on the [all-in-one Github](https://github.
 
 #### Sample Images
 
-- Download ActivityNet Videos [here](http://activity-net.org/)
+- Download ActivityNet Videos [here](http://activity-net.org/) and train/val/test video list [here]()
 - Use `sample_imgs_allinone.py` to sample images and place them in `data/acqa/frameqa`
 
 - Revise the path in `AllInOne\datasets\tgif.py` 
