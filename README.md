@@ -4,36 +4,36 @@ This repository contains code for our baselines HCRN, ClipBERT, and all-in-one. 
 
 ## results
 
-| val acc | hcrn | hcrn w/o vision | ClipBERT | ClipBERT w/o vision | all-in-one-base | all-in-one-base w/o vision |
-| ------- | ---- | --------------- | -------- | ------------------- | --------------- | -------------------------- |
-| open    |      |                 |          |                     |                 |                            |
-| binary  |      |                 |          |                     |                 |                            |
-| overall |      |                 |          |                     |                 |                            |
+| val acc | hcrn  | hcrn w/o vision | ClipBERT | ClipBERT w/o vision | all-in-one-base | all-in-one-base w/o vision |
+| ------- | ----- | --------------- | -------- | ------------------- | --------------- | -------------------------- |
+| overall | 41.69 | 37.24           | 44.34    | 36.14               | 45.44           | 36.6                       |
 
 ## Data
+
+### Videos
+
+You can download ActivityNet videos [here](http://activity-net.org/)
 
 ### Appearance Features
 
 We shared appearance features across models for consistency (RESNET for appearance and RESNEXT for accuracy). Find the visual features stored [here](). The file names are the same as the original baselines (so they reference tgif-qa). However, these files include the features for the videos used in ANETQA.
 
-- tgif-qa_frameqa_appearance_feat.h5
-- tgif-qa_frameqa_motion_feat.h5
+- acqa_frameqa_appearance_feat.h5（12GB）
+- acqa_frameqa_motion_feat.h5（721MB）
 
 ### Images
 
-For ClipBERT and all-in-one, both of them need sample images from videos, in consideration of training speed, we sampled the first and the last two frames of each second from the video in the form of pictures for training.(you'd better store them in ssd)
+In consideration of training speed, we sample frames from the videos in the form of pictures for training.
 
-You can download ActivityNet videos [here]()
+For ClipBERT, we randomly sample 5 sets of 4x2 frames  for training and uniformly sample 16 frames for validation.
 
-#### sample images
+For all-in-one, we sample the middle frames of each second from the video in the form of pictures. We randomly sample 3 frames for training and uniformly sample 3 frames for validation.
 
-```python
-python sample_imgs.py
-```
+Use `sample_imgs_clipbert.py` and  `sample_img_allinone`.py to sample imges
 
 ### Questions formatted
 
-HCRN use .csv version, both ClipBERT and all-in-one use .jsonl version. you can find the questions in a .csv and .jsonl format stored [here]() 
+HCRN use .csv version, both ClipBERT and all-in-one use .jsonl version. you can find the questions in a .csv and .jsonl format stored [here]()
 
 ## Models
 
@@ -49,21 +49,13 @@ Download visual features from [here](), and place them in `data/acqa/frameqa`
 
 Train_val: `python preprocess/preprocess_questions.py --dataset tgif-qa --question_type frameqa --glove_pt data/glove/glove.840.300d.pkl --mode train`
 
+Test: `python preprocess/preprocess_questions.py --dataset tgif-qa --question_type frameqa --mode test`
+
 #### Run model
 
-##### w version
+Train:`python train.py --cfg configs/acqa.yml`
 
-```python
-python train.py --cfg configs/acqa.yml
-```
-
-##### w/o version
-
-- remove the annotation under the `blind version` in the file `DataLoader.py`
-
-```python
-python train.py --cfg configs/acqa_blind.yml
-```
+Test:`python validate.py --cfg configs/acqa.yml`
 
 #### View details of result
 
@@ -76,7 +68,6 @@ python eval_result.py
 #### Updated and added code files
 
 - configs/acqa.yml
-- configs/acqa_blind.yml
 - DataLoader.py
 - train.py
 - validate.py
@@ -90,6 +81,64 @@ python eval_result.py
 
 ### ClipBERT
 
+Find the code and set-up instructions on the [ClipBERT Github](https://github.com/jayleicn/ClipBERT)
 
+#### Sample Images
+
+- Download ActivityNet Videos [here](http://activity-net.org/)
+- Use `sample_imgs_clipbert.py` to sample images place them in `data/acqa/frameqa`
+
+- Revise the path in `AllInOne\datasets\tgif.py` 
+
+  ```python
+  /meta_data/imgs --->{store_path}/imgs
+  /meta_data/val_imgs	--->{store_path}/val_imgs
+  ```
+
+#### Run Model
+
+Train:`horovodrun -np 4 python src/tasks/run_video_qa.py --config src/configs/tgif_qa_frameqa_base_resnet50.json --output_dir ./result`
+
+Test:`horovodrun -np 4 python src/tasks/run_video_qa.py --config src/configs/tgif_qa_frameqa_base_resnet50.json  --do_inference 1 --output_dir $OUTPUT_DIR   --inference_split val --inference_model_step $STEP --inference_txt_db /txt/data_test.jsonl  --inference_batch_size 64 --inference_n_clips 16`
+
+#### Updated and added code files
+
+- src/task/run_video_qa.py
+- src/datasets/dataset_base.py
+- src/configs/tgif_qa_frameqa_base_resnet50.json
+- src/datasets/dataset_video_qa.py
+- src/utils/load_save.py
 
 ### all-in-one
+
+Find the code and set-up instructions on the [all-in-one Github](https://github.com/showlab/all-in-one)
+
+#### Sample Images
+
+- Download ActivityNet Videos [here](http://activity-net.org/)
+- Use `sample_imgs_allinone.py` to sample images place them in `data/acqa/frameqa`
+
+- Revise the path in `AllInOne\datasets\tgif.py` 
+
+  ```python
+  /meta_data/imgs --->{store_path}/imgs
+  /meta_data/val_imgs	--->{store_path}/val_imgs
+  ```
+
+- Download jsons that records the video duration and fps [here]()
+
+#### Run Model
+
+Train: `python run.py with data_root=DataSet num_gpus=4 num_nodes=1 num_frames=3 per_gpu_batchsize=32 task_finetune_tgifqa load_path="pretrained/all-in-one-base.ckpt"`
+
+Test:`python run.py with data_root=DataSet num_gpus=4 num_nodes=1 num_frames=3 per_gpu_batchsize=64 task_finetune_tgifqa test_only=True load_path=${ckpt_path}`
+
+#### Updated and added code files
+
+- AllInOne\datasets\tgif.py
+
+- video_len.json
+
+- video_fps.json
+
+  
