@@ -124,7 +124,7 @@ Find the code and set-up instructions on the [all-in-one Github](https://github.
   /meta_data/val_imgs	--->{store_path}/val_imgs
   ```
 
-- Download jsons that records the video duration and fps [here]()
+- Download jsons that records the video duration and fps [here](), and place them `meta_data/tgif`
 
 #### Run Model
 
