@@ -86,13 +86,12 @@ Find the code and set-up instructions on the [ClipBERT Github](https://github.co
 #### Sample Images
 
 - Download ActivityNet Videos [here](http://activity-net.org/)
-- Use `sample_imgs_clipbert.py` to sample images place them in `data/acqa/frameqa`
+- Use `sample_imgs_clipbert.py` to sample images
 
-- Revise the path in `AllInOne\datasets\tgif.py` 
+- Revise the path in `src\datasets\dataset_base.py` 
 
   ```python
-  /meta_data/imgs --->{store_path}/imgs
-  /meta_data/val_imgs	--->{store_path}/val_imgs
+  pickle.load(open(${img_path}),"rb")
   ```
 
 #### Run Model
@@ -116,7 +115,7 @@ Find the code and set-up instructions on the [all-in-one Github](https://github.
 #### Sample Images
 
 - Download ActivityNet Videos [here](http://activity-net.org/)
-- Use `sample_imgs_allinone.py` to sample images place them in `data/acqa/frameqa`
+- Use `sample_imgs_allinone.py` to sample images and place them in `data/acqa/frameqa`
 
 - Revise the path in `AllInOne\datasets\tgif.py` 
 
