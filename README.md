@@ -4,9 +4,9 @@ This repository contains code for our baselines HCRN, ClipBERT, and all-in-one. 
 
 ## results
 
-| val acc | hcrn  | hcrn w/o vision | ClipBERT | ClipBERT w/o vision | all-in-one-base | all-in-one-base w/o vision |
-| ------- | ----- | --------------- | -------- | ------------------- | --------------- | -------------------------- |
-| overall | 41.69 | 37.24           | 44.34    | 36.14               | 45.44           | 36.6                       |
+| val acc | hcrn  | ClipBERT | all-in-one-base |
+| ------- | ----- | -------- | --------------- |
+| overall | 41.69 | 44.34    | 45.44           |
 
 ## Data
 
