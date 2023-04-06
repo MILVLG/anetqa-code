@@ -22,7 +22,7 @@ Download qa pairs in .csv  version [here]()
 
 You can also extract features yourself as follows:
 
-1.  To extract appearance feature:
+1. To extract appearance feature:
 
    ```
    python preprocess/preprocess_features.py --gpu_id 0 --dataset tgif-qa --model resnet101 --question_type frameqa

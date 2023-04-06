@@ -15,7 +15,8 @@ This repository contains code for our baselines HCRN, ClipBERT, and all-in-one. 
 - Download ActivityNet videos [here](http://activity-net.org/)
 - Download our scene graph from our [website](https://milvlg.github.io/anetqa/)
 - Download our Question-Answer pairs from our [website](https://milvlg.github.io/anetqa/)
-- Dump frame_list from [here]()
+- Download frame list from [here]()
+- Download video list from [here]() (hcrn may use it)
 
 ### Scene Graph Format
 
