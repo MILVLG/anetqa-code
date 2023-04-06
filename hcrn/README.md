@@ -14,7 +14,7 @@ pip install -r requirements.txt
 
 ## Download Features and qa pairs
 
-Download visual features from [here](), and place them in `data/acqa/frameqa`
+Download visual features from [here](), and place them in `data/anetqa/frameqa`
 
 Download qa pairs in .csv  version [here]()
 
@@ -52,9 +52,9 @@ You can also extract features yourself as follows:
 
 #### Run model
 
-Train:`python train.py --cfg configs/acqa.yml`
+Train:`python train.py --cfg configs/anetqa.yml`
 
-Test:`python validate.py --cfg configs/acqa.yml`
+Test:`python validate.py --cfg configs/anetqa.yml`
 
 #### View details of result
 
@@ -64,7 +64,7 @@ You can use them to analyze the details of the results
 
 #### Updated and added code files
 
-- configs/acqa.yml
+- configs/anetqa.yml
 - DataLoader.py
 - train.py
 - validate.py
