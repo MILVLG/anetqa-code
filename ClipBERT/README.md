@@ -101,6 +101,9 @@ You can use them to analyze the details of the results
 
 ## Updated and added code files
 
+- hcrn\preprocess\preprocess_features.py
+- hcrn\preprocess\preprocess_questions.py
+- hcrn\preprocess\datautils\tgif_qa.py
 - src/task/run_video_qa.py
 - src/datasets/dataset_base.py
 - src/configs/tgif_qa_frameqa_base_resnet50.json
