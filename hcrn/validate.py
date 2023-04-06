@@ -85,7 +85,7 @@ if __name__ == '__main__':
     if args.cfg_file is not None:
         cfg_from_file(args.cfg_file)
 
-    assert cfg.dataset.name in ['tgif-qa', 'msrvtt-qa', 'msvd-qa','acqa','agqa']
+    assert cfg.dataset.name in ['tgif-qa', 'msrvtt-qa', 'msvd-qa','anetqa','agqa']
     assert cfg.dataset.question_type in ['frameqa', 'count', 'transition', 'action', 'none']
     # check if the data folder exists
     assert os.path.exists(cfg.dataset.data_dir)
@@ -100,7 +100,7 @@ if __name__ == '__main__':
     loaded = torch.load(ckpt, map_location='cpu')
     model_kwargs = loaded['model_kwargs']
 
-    if cfg.dataset.name in ['tgif-qa','acqa','agqa']:
+    if cfg.dataset.name in ['tgif-qa','anetqa','agqa']:
         cfg.dataset.test_question_pt = os.path.join(cfg.dataset.data_dir,
                                                     cfg.dataset.test_question_pt.format(cfg.dataset.name, cfg.dataset.question_type))
         cfg.dataset.vocab_json = os.path.join(cfg.dataset.data_dir, cfg.dataset.vocab_json.format(cfg.dataset.name, cfg.dataset.question_type))

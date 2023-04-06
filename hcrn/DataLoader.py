@@ -107,7 +107,7 @@ class VideoQADataLoader(DataLoader):
         vocab = load_vocab(vocab_json_path)
 
 
-        video_list = json.load(open("data/acqa/video_list.json"))
+        video_list = json.load(open("data/anetqa/video_list.json"))
         question_pt_path = str(kwargs.pop('question_pt'))
         print('loading questions from %s' % (question_pt_path))
         question_type = kwargs.pop('question_type')

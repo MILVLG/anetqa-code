@@ -2,19 +2,6 @@
 
 Find the code and set-up instructions on the [HCRN Github](https://github.com/thaolmk54/hcrn-videoqa)
 
-## Appearance Features
-
-We shared appearance features across models for consistency (RESNET for appearance and RESNEXT for accuracy). Find the visual features stored [here](). The file names are the same as the original baselines (so they reference tgif-qa). However, these files include the features for the videos used in ANETQA.
-
-- acqa_frameqa_appearance_feat.h5（12GB）
-- acqa_frameqa_motion_feat.h5（721MB）
-
-## Download Features and qa pairs
-
-Download visual features from [here](), and place them in `data/acqa/frameqa`
-
-Download qa pairs in .csv  version [here]()
-
 ## Install Dependencies
 
 ```
@@ -24,6 +11,12 @@ conda install -c conda-forge ffmpeg
 conda install -c conda-forge scikit-video
 pip install -r requirements.txt
 ```
+
+## Download Features and qa pairs
+
+Download visual features from [here](), and place them in `data/acqa/frameqa`
+
+Download qa pairs in .csv  version [here]()
 
 ## Preprocessing visual features
 

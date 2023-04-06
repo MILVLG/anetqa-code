@@ -1,12 +1,12 @@
-gpu_id: 3
+gpu_id: 0
 multi_gpus: False
 num_workers: 8
 seed: 666
-exp_name: 'expACQA_blind'
+exp_name: 'expanetqa'
 
 train:
   lr: 0.0001
-  batch_size: 32
+  batch_size: 128
   restore: False
   max_epochs: 25
   word_dim: 300
@@ -25,7 +25,7 @@ test:
   write_preds: True
 
 dataset:
-  name: 'acqa'
+  name: 'anetqa'
   question_type: 'frameqa'
-  data_dir: 'data/acqa/frameqa'
+  data_dir: 'data/anetqa/frameqa'
   save_dir: 'results/'

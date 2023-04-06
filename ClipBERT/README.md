@@ -23,7 +23,17 @@ For ClipBERT, we randomly sample 5 sets of 4x2 frames  for training and uniforml
 
 Download qa pairs in .jsonl version [here]()
 
-## Install Dependencies
+## Requirements
+
+We provide a Docker image for easier reproduction. Please install the following:
+
+- [nvidia driver](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#package-manager-installation) (418+),
+- [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/) (19.03+),
+- [nvidia-container-toolkit](https://github.com/NVIDIA/nvidia-docker#quickstart).
+
+Our scripts require the user to have the [docker group membership](https://docs.docker.com/install/linux/linux-postinstall/) so that docker commands can be run without sudo. We only support Linux with NVIDIA GPUs. We test on Ubuntu 18.04 and V100 cards. We use mixed-precision training hence GPUs with Tensor Cores are recommended.
+
+## Getting Started
 
 1. Create a folder that stores pretrained models, all the data, and results.
 
@@ -80,6 +90,12 @@ Download qa pairs in .jsonl version [here]()
    ```
 
    `$STEP` is an integer, which tells the script to use the checkpoint
+
+#### View details of result
+
+Download the list of qa_id under different classification systems [here]()
+
+You can use them to analyze the details of the results
 
 #### Updated and added code files
 

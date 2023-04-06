@@ -284,7 +284,7 @@ def main():
         cfg_from_file(args.cfg_file)
 
 
-    assert cfg.dataset.name in ['tgif-qa', 'msrvtt-qa', 'msvd-qa','acqa','agqa']
+    assert cfg.dataset.name in ['tgif-qa', 'msrvtt-qa', 'msvd-qa','anetqa','agqa']
     assert cfg.dataset.question_type in ['frameqa', 'count', 'transition', 'action', 'none']
     # check if the data folder exists
     assert os.path.exists(cfg.dataset.data_dir)
@@ -315,7 +315,7 @@ def main():
         logging.info(k + ':' + str(v))
     # concat absolute path of input files
 
-    if cfg.dataset.name in['tgif-qa','acqa','agqa']:
+    if cfg.dataset.name in['tgif-qa','anetqa','agqa']:
         cfg.dataset.train_question_pt = os.path.join(cfg.dataset.data_dir,
                                                      cfg.dataset.train_question_pt.format(cfg.dataset.name, cfg.dataset.question_type))
         cfg.dataset.val_question_pt = os.path.join(cfg.dataset.data_dir,

@@ -22,12 +22,12 @@ if __name__ == '__main__':
     np.random.seed(args.seed)
 
     if args.dataset == 'tgif-qa':
-        args.annotation_file = 'data/acqa/data_{}.csv'
-        args.output_pt = 'data/acqa/{}/acqa_{}_{}_questions.pt'
-        args.vocab_json = 'data/acqa/{}/acqa_{}_vocab.json'
+        args.annotation_file = 'data/anetqa/data_{}.csv'
+        args.output_pt = 'data/anetqa/{}/anetqa_{}_{}_questions.pt'
+        args.vocab_json = 'data/anetqa/{}/anetqa_{}_vocab.json'
         # check if data folder exists
-        if not os.path.exists('data/acqa/{}'.format(args.question_type)):
-            os.makedirs('data/acqa/{}'.format(args.question_type))
+        if not os.path.exists('data/anetqa/{}'.format(args.question_type)):
+            os.makedirs('data/anetqa/{}'.format(args.question_type))
 
         if args.question_type in ['frameqa', 'count']:
             tgif_qa.process_questions_openended(args)
