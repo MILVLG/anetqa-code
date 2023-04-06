@@ -46,23 +46,39 @@ You can also extract features yourself as follows:
 
 2. Preprocess train/val/test questions:
 
-   Train_val: `python preprocess/preprocess_questions.py --dataset tgif-qa --question_type frameqa --glove_pt data/glove/glove.840.300d.pkl --mode train`
+   Train_val
 
-   Test: `python preprocess/preprocess_questions.py --dataset tgif-qa --question_type frameqa --mode test`
+   ```
+   python preprocess/preprocess_questions.py --dataset tgif-qa --question_type frameqa --glove_pt data/glove/glove.840.300d.pkl --mode train
+   ```
 
-#### Run model
+   Test: 
 
-Train:`python train.py --cfg configs/anetqa.yml`
+   ```
+   python preprocess/preprocess_questions.py --dataset tgif-qa --question_type frameqa --mode test
+   ```
 
-Test:`python validate.py --cfg configs/anetqa.yml`
+## Run model
 
-#### View details of result
+Train:
+
+```
+python train.py --cfg configs/anetqa.yml
+```
+
+Test:
+
+```
+python validate.py --cfg configs/anetqa.yml
+```
+
+## View details of result
 
 Download the list of qa_id under different classification systems [here]()
 
 You can use them to analyze the details of the results
 
-#### Updated and added code files
+## Updated and added code files
 
 - configs/anetqa.yml
 - DataLoader.py
@@ -70,8 +86,3 @@ You can use them to analyze the details of the results
 - validate.py
 - preprocess/preprocess_question.py
 - preprocess/datautils/tgif_qa.py
-
-#### Appearance features
-
-- tgif-qa_frameqa_appearance_feat.h5
-- tgif-qa_frameqa_motion_feat.h5

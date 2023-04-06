@@ -2,8 +2,6 @@
 
 Find the code and set-up instructions on the [all-in-one Github](https://github.com/showlab/all-in-one)
 
-
-
 ## Install Dependencies
 
 ### 1. PytorchLighting
@@ -69,9 +67,19 @@ Download qa pairs in .jsonl version [here]()
 
 ## Run Model
 
-Train: `python run.py with data_root=DataSet num_gpus=4 num_nodes=1 num_frames=3 per_gpu_batchsize=32 task_finetune_tgifqa load_path="pretrained/all-in-one-base.ckpt"`
+Train
 
-Test:`python run.py with data_root=DataSet num_gpus=4 num_nodes=1 num_frames=3 per_gpu_batchsize=64 task_finetune_tgifqa test_only=True load_path=${ckpt_path}`
+```
+python run.py with data_root=DataSet num_gpus=4 num_nodes=1 num_frames=3 per_gpu_batchsize=32 task_finetune_tgifqa load_path="pretrained/all-in-one-base.ckpt"
+```
+
+**Note: as the anetqa format is similar to tgif-qa, the same config is used**
+
+Test
+
+```
+python run.py with data_root=DataSet num_gpus=4 num_nodes=1 num_frames=3 per_gpu_batchsize=64 task_finetune_tgifqa test_only=True load_path=${ckpt_path}
+```
 
 #### View details of result
 

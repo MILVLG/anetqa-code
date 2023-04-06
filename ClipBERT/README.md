@@ -76,6 +76,8 @@ Our scripts require the user to have the [docker group membership](https://docs.
        --output_dir ./result
    ```
 
+   **Note: as the anetqa format is similar to tgif-qa, the same config is used**
+
 2. Run inference.
 
    ```
@@ -91,13 +93,13 @@ Our scripts require the user to have the [docker group membership](https://docs.
 
    `$STEP` is an integer, which tells the script to use the checkpoint
 
-#### View details of result
+## View details of result
 
 Download the list of qa_id under different classification systems [here]()
 
 You can use them to analyze the details of the results
 
-#### Updated and added code files
+## Updated and added code files
 
 - src/task/run_video_qa.py
 - src/datasets/dataset_base.py
