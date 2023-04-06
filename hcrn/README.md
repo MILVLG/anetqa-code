@@ -1,25 +1,61 @@
-### HCRN
+# HCRN
 
 Find the code and set-up instructions on the [HCRN Github](https://github.com/thaolmk54/hcrn-videoqa)
 
-HCRN use .csv version
-
-### Appearance Features
+## Appearance Features
 
 We shared appearance features across models for consistency (RESNET for appearance and RESNEXT for accuracy). Find the visual features stored [here](). The file names are the same as the original baselines (so they reference tgif-qa). However, these files include the features for the videos used in ANETQA.
 
 - acqa_frameqa_appearance_feat.h5（12GB）
 - acqa_frameqa_motion_feat.h5（721MB）
 
-#### Download Features
+## Download Features and qa pairs
 
 Download visual features from [here](), and place them in `data/acqa/frameqa`
 
-#### Preprocess questions
+Download qa pairs in .csv  version [here]()
 
-Train_val: `python preprocess/preprocess_questions.py --dataset tgif-qa --question_type frameqa --glove_pt data/glove/glove.840.300d.pkl --mode train`
+## Install Dependencies
 
-Test: `python preprocess/preprocess_questions.py --dataset tgif-qa --question_type frameqa --mode test`
+```
+conda create -n hcrn_videoqa python=3.6
+conda activate hcrn_videoqa
+conda install -c conda-forge ffmpeg
+conda install -c conda-forge scikit-video
+pip install -r requirements.txt
+```
+
+## Preprocessing visual features
+
+You can also extract features yourself as follows:
+
+1.  To extract appearance feature:
+
+   ```
+   python preprocess/preprocess_features.py --gpu_id 0 --dataset tgif-qa --model resnet101 --question_type frameqa
+   ```
+
+2. To extract motion feature:
+
+   Download ResNeXt-101 [pretrained model](https://drive.google.com/drive/folders/1zvl89AgFAApbH0At-gMuZSeQB_LpNP-M) (resnext-101-kinetics.pth) and place it to `data/preprocess/pretrained/`.
+
+   ```
+   python preprocess/preprocess_features.py --dataset tgif-qa --model resnext101 --image_height 112 --image_width 112 --question_type frameqa
+   ```
+
+## Preprocess questions
+
+1. Download [glove pretrained 300d word vectors](http://nlp.stanford.edu/data/glove.840B.300d.zip) to `data/glove/` and process it into a pickle file:
+
+   ```
+   python txt2pickle.py
+   ```
+
+2. Preprocess train/val/test questions:
+
+   Train_val: `python preprocess/preprocess_questions.py --dataset tgif-qa --question_type frameqa --glove_pt data/glove/glove.840.300d.pkl --mode train`
+
+   Test: `python preprocess/preprocess_questions.py --dataset tgif-qa --question_type frameqa --mode test`
 
 #### Run model
 
@@ -31,7 +67,7 @@ Test:`python validate.py --cfg configs/acqa.yml`
 
 Download the list of qa_id under different classification systems [here]()
 
-you can use them to analyze the details of the results
+You can use them to analyze the details of the results
 
 #### Updated and added code files
 
