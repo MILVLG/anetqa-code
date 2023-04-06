@@ -16,7 +16,7 @@ pip install -r requirements.txt
 
 Download visual features from [here](), and place them in `data/anetqa/frameqa`
 
-Download qa pairs in .csv  version [here]()
+Download qa pairs in .csv  version [here]()， and place them in `data/anetqa`
 
 ## Preprocessing visual features
 
