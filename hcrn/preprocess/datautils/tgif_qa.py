@@ -32,7 +32,6 @@ def load_video_paths(args):
 
     return input_paths
 
-
 def openeded_encoding_data(args, vocab, questions, video_names, video_ids, answers, mode='train'):
     ''' Encode question tokens'''
     print('Encoding data')
@@ -276,9 +275,6 @@ def process_questions_openended(args):
         with open(args.vocab_json.format(args.question_type, args.question_type), 'r') as f:
             vocab = json.load(f)
         openeded_encoding_data(args, vocab, questions, video_names, video_ids, answers, mode='test')
-
-
-
 
 def process_questions_mulchoices(args):
     print('Loading data')

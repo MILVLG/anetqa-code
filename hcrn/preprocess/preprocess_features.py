@@ -56,6 +56,7 @@ def run_batch(cur_batch, model):
     std = np.array([0.229, 0.224, 0.224]).reshape(1, 3, 1, 1)
 
     image_batch = np.concatenate(cur_batch, 0).astype(np.float32)
+    print(image_batch.shape)
     image_batch = (image_batch / 255.0 - mean) / std
     image_batch = torch.FloatTensor(image_batch).cuda()
     with torch.no_grad():
@@ -147,16 +148,12 @@ def generate_h5(model, video_ids, num_clips, outfile):
             os.makedirs('data/{}'.format(args.dataset))
 
     dataset_size = len(video_ids)
-    strID2numID = json.load(open("data/agqa/strID2numID.json"))
-    # video_list1 = json.load(open("video_3000.json"))
-    # video_list2 = json.load(open("video_6000.json"))
-    # video_list = json.load(open("/data-ssd1/zhenglx/video_list.json"))
+    video_list = json.load(open("video_list.json"))
     with h5py.File(outfile, 'w') as fd:
         feat_dset = None
         video_ids_dset = None
         i0 = 0
         _t = {'misc': utils.Timer()}
-        # for i, (video_path, video_id) in enumerate(video_ids):
         for video_path, video_id in tqdm(video_ids):
             _t['misc'].tic()
             clips, valid = extract_clips_with_consecutive_frames(video_path, num_clips=num_clips, num_frames_per_clip=16)
@@ -191,15 +188,8 @@ def generate_h5(model, video_ids, num_clips, outfile):
 
             i1 = i0 + 1
             feat_dset[i0:i1] = clip_feat
-            # video_ids_dset[i0:i1] = video_id
-            # video_ids_dset[i0:i1] = video_list.index(video_id)
-            video_ids_dset[i0:i1] = strID2numID[video_id]
+            video_ids_dset[i0:i1] = video_list.index(video_id)
             i0 = i1
-            # _t['misc'].toc()
-            # if (i % 500 == 0):
-            #     print('{:d}/{:d} {:.3f}s (projected finish: {:.2f} hours)' \
-            #           .format(i1, dataset_size, _t['misc'].average_time,
-            #                   _t['misc'].average_time * (dataset_size - i1) / 3600))
 
 
 if __name__ == '__main__':
@@ -235,12 +225,11 @@ if __name__ == '__main__':
 
     # annotation files
     if args.dataset == 'tgif-qa':
-        args.annotation_file = '/ceph-g/lethao/datasets/tgif-qa/csv/Total_{}_question.csv'
-        args.video_dir = '/ceph-g/lethao/datasets/tgif-qa/gifs'
-        args.outfile = 'data/{}/{}/{}_{}_{}_feat.h5'
+        args.annotation_file = 'data/anetqa/data.csv'
+        args.video_dir = '/data/zhenglx/clipbert/storage/vis_db/videos'
+        args.outfile = 'data/anetqa/{}/anetqa_{}_{}_feat.h5'
         video_paths = tgif_qa.load_video_paths(args)
         random.shuffle(video_paths)
-
         # load model
         if args.model == 'resnet101':
             model = build_resnet()
@@ -248,30 +237,3 @@ if __name__ == '__main__':
             model = build_resnext()
         generate_h5(model, video_paths, args.num_clips,
                     args.outfile.format(args.question_type, args.question_type, args.feature_type))
-                    # args.outfile.format(args.dataset, args.question_type, args.dataset, args.question_type, args.feature_type))
-    elif args.dataset == 'msrvtt-qa':
-        args.annotation_file = '/ceph-g/lethao/datasets/msrvtt/annotations/{}_qa.json'
-        args.video_dir = '/ceph-g/lethao/datasets/msrvtt/videos/'
-        video_paths = msrvtt_qa.load_video_paths(args)
-        random.shuffle(video_paths)
-        # load model
-        if args.model == 'resnet101':
-            model = build_resnet()
-        elif args.model == 'resnext101':
-            model = build_resnext()
-        generate_h5(model, video_paths, args.num_clips,
-                    args.outfile.format(args.dataset, args.dataset, args.feature_type))
-
-    elif args.dataset == 'msvd-qa':
-        args.annotation_file = '/ceph-g/lethao/datasets/msvd/MSVD-QA/{}_qa.json'
-        args.video_dir = '/ceph-g/lethao/datasets/msvd/MSVD-QA/video/'
-        args.video_name_mapping = '/ceph-g/lethao/datasets/msvd/youtube_mapping.txt'
-        video_paths = msvd_qa.load_video_paths(args)
-        random.shuffle(video_paths)
-        # load model
-        if args.model == 'resnet101':
-            model = build_resnet()
-        elif args.model == 'resnext101':
-            model = build_resnext()
-        generate_h5(model, video_paths, args.num_clips,
-                    args.outfile.format(args.dataset, args.dataset, args.feature_type))
