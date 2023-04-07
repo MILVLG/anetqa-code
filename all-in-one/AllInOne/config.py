@@ -50,7 +50,7 @@ def config():
     vqav2_label_size = 3129
     msrvttqa_label_size = 1501
     max_text_len = 40  # original: 40, 200: for long sentences/paragraph
-    tokenizer = "pretrained/bert-base-uncased"
+    tokenizer = "bert-base-uncased"
     vocab_size = 30522
     whole_word_masking = False
     mlm_prob = 0.15
@@ -433,7 +433,8 @@ def task_finetune_tgifqa():
     datasets = ["tgif"]
     loss_names = _loss_names({"openend_vqa": 1})
     batch_size = 512
-    msrvttqa_label_size = 1541  # vqa voculbary length 1540 + 1 background
+    # msrvttqa_label_size = 1541  # vqa voculbary length 1540 + 1 background
+    msrvttqa_label_size = 12911  # vqa voculbary length 1540 + 1 background
     max_epoch = 20
     max_steps = None
     warmup_steps = 0.1

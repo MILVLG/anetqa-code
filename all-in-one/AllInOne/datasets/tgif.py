@@ -3,6 +3,9 @@ from .video_base_dataset import BaseDataset, read_frames_gif
 import os
 import json
 import pandas as pd
+import cv2
+import random
+import torch
 
 # 2022.1.28 read gif is too slow, may be need to speedup by convert gif -> video
 # https://stackify.dev/833655-python-convert-gif-to-videomp4
@@ -41,7 +44,7 @@ class TGIFDataset(BaseDataset):
             'test': 'data_test.jsonl'
         }
         target_split_fp = split_files[self.split]
-        answer_fp = os.path.join(metadata_dir, 'frameqa_trainval_ans2label.json')
+        answer_fp = os.path.join(metadata_dir, 'anetqa_trainval_ans2label.json')
         # answer_fp = os.path.join(metadata_dir, 'msrvtt_qa_ans2label.json')
         with open(answer_fp, 'r') as JSON:
             self.ans_lab_dict = json.load(JSON)
@@ -71,20 +74,20 @@ class TGIFDataset(BaseDataset):
                 frame_idxs = [random.choice(range(x[0], x[1]))*fps for x in ranges]
             imgs= np.zeros((3,512,512,3))
             for idx,frame_id in enumerate(frame_idxs):
-                img = cv2.imread(f"/meta_data/imgs/{video_name}_{frame_id}.jpg")
+                img = cv2.imread(f"meta_data/imgs/{video_name}_{frame_id}.jpg")
                 imgs[idx]=img
             imgs = torch.tensor(imgs)
             imgs = imgs.permute(0, 3, 1, 2).type(torch.FloatTensor)
         else:
             imgs= np.zeros((3,512,512,3))
             for i in range(3):
-                img = cv2.imread(f"/meta_data/imgs/{video_name}_{i}.jpg")
+                img = cv2.imread(f"meta_data/imgs/{video_name}_{i}.jpg")
                 imgs[i]=img
             imgs = torch.tensor(imgs)
             imgs = imgs.permute(0, 3, 1, 2).type(torch.FloatTensor)
         
         if imgs is None:
-            raise Exception("Invalid img!", rel_fp)
+            raise Exception("Invalid img!")
         else:
             return imgs
 

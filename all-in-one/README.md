@@ -15,6 +15,8 @@ cd [Path_To_This_Code]
 pip install -r requirements.txt
 ```
 
+**Note: Installing apex using pip may fail, see [NVIDIA/apex](https://github.com/NVIDIA/apex) for installation details **
+
 ### 2. ffmpeg and pytorch video (may use)
 
 #### 1. ffmpeg
@@ -55,8 +57,8 @@ For all-in-one, we sample the middle frames of each second from the video in the
 - Revise the path in `AllInOne\datasets\tgif.py` 
 
   ```python
-  /meta_data/imgs --->{store_path}/imgs
-  /meta_data/val_imgs	--->{store_path}/val_imgs
+  meta_data/imgs --->{store_path}/imgs
+  meta_data/val_imgs	--->{store_path}/val_imgs
   ```
 
 - Download jsons that records the video duration and fps [here](), and place them `meta_data/tgif`
@@ -100,9 +102,11 @@ You can use them to analyze the details of the results
 
 #### Updated and added code files
 
-- AllInOne\datasets\tgif.py
+- AllInOne/datasets/tgif.py
 
-- video_len.json
+- AllInOne/config.py
+
+- meta_data/tgif/video_len.json
 
 - video_fps.json
 
