@@ -35,7 +35,7 @@ revise the `video_dir` in `preprocess/preprocess_feature.py`
    Download ResNeXt-101 [pretrained model](https://drive.google.com/drive/folders/1zvl89AgFAApbH0At-gMuZSeQB_LpNP-M) (resnext-101-kinetics.pth) and place it to `data/preprocess/pretrained/`.
 
    ```
-   python preprocess/preprocess_features.py --dataset anetq --model resnext101 --image_height 112 --image_width 112 --question_type frameqa
+   python preprocess/preprocess_features.py --dataset anetqa --model resnext101 --image_height 112 --image_width 112 --question_type frameqa
    ```
 
 ## Preprocess questions
@@ -51,13 +51,13 @@ revise the `video_dir` in `preprocess/preprocess_feature.py`
    Train_val
 
    ```
-   python preprocess/preprocess_questions.py --dataset tgif-qa --question_type frameqa --glove_pt data/glove/glove.840.300d.pkl --mode train
+   python preprocess/preprocess_questions.py --dataset anetqa --question_type frameqa --glove_pt data/glove/glove.840.300d.pkl --mode train
    ```
 
    Test: 
 
    ```
-   python preprocess/preprocess_questions.py --dataset tgif-qa --question_type frameqa --mode test
+   python preprocess/preprocess_questions.py --dataset anetqa --question_type frameqa --mode test
    ```
 
 ## Run model
