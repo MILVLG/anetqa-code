@@ -65,6 +65,17 @@ For all-in-one, we sample the middle frames of each second from the video in the
 
 Download qa pairs in .jsonl version [here]()
 
+## Download Pretrained Weights
+
+Download **All-in-one-B** [here](https://drive.google.com/file/d/1z3g891ND6CGCUkVzCXr2647wVG-15uUS/view?usp=sharing)
+
+After downloaded these pretrained weights, move them into pretrained dir.
+
+```
+mkdir pretrained
+cp *.ckpt pretrained/
+```
+
 ## Run Model
 
 Train
