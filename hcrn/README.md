@@ -22,10 +22,12 @@ Download qa pairs in .csv  version [here]()， and place them in `data/anetqa`
 
 You can also extract features yourself as follows:
 
+revise the `video_dir` in `preprocess/preprocess_feature.py`
+
 1. To extract appearance feature:
 
    ```
-   python preprocess/preprocess_features.py --gpu_id 0 --dataset tgif-qa --model resnet101 --question_type frameqa
+   python preprocess/preprocess_features.py --gpu_id 0 --dataset anetqa --model resnet101 --question_type frameqa
    ```
 
 2. To extract motion feature:
@@ -33,7 +35,7 @@ You can also extract features yourself as follows:
    Download ResNeXt-101 [pretrained model](https://drive.google.com/drive/folders/1zvl89AgFAApbH0At-gMuZSeQB_LpNP-M) (resnext-101-kinetics.pth) and place it to `data/preprocess/pretrained/`.
 
    ```
-   python preprocess/preprocess_features.py --dataset tgif-qa --model resnext101 --image_height 112 --image_width 112 --question_type frameqa
+   python preprocess/preprocess_features.py --dataset anetq --model resnext101 --image_height 112 --image_width 112 --question_type frameqa
    ```
 
 ## Preprocess questions

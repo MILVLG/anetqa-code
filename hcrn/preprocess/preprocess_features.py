@@ -56,7 +56,6 @@ def run_batch(cur_batch, model):
     std = np.array([0.229, 0.224, 0.224]).reshape(1, 3, 1, 1)
 
     image_batch = np.concatenate(cur_batch, 0).astype(np.float32)
-    print(image_batch.shape)
     image_batch = (image_batch / 255.0 - mean) / std
     image_batch = torch.FloatTensor(image_batch).cuda()
     with torch.no_grad():
@@ -196,7 +195,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--gpu_id', type=int, default=2, help='specify which gpu will be used')
     # dataset info
-    parser.add_argument('--dataset', default='tgif-qa', choices=['tgif-qa', 'msvd-qa', 'msrvtt-qa'], type=str)
+    parser.add_argument('--dataset', default='tgif-qa', choices=['tgif-qa', 'msvd-qa', 'msrvtt-qa','anetqa'], type=str)
     parser.add_argument('--question_type', default='none', choices=['frameqa', 'count', 'transition', 'action', 'none'], type=str)
     # output
     parser.add_argument('--out', dest='outfile',
@@ -224,9 +223,10 @@ if __name__ == '__main__':
     np.random.seed(args.seed)
 
     # annotation files
-    if args.dataset == 'tgif-qa':
+    # if args.dataset == 'tgif-qa':
+    if args.dataset == 'anetqa':
         args.annotation_file = 'data/anetqa/data.csv'
-        args.video_dir = '/data/zhenglx/clipbert/storage/vis_db/videos'
+        args.video_dir = '../videos'
         args.outfile = 'data/anetqa/{}/anetqa_{}_{}_feat.h5'
         video_paths = tgif_qa.load_video_paths(args)
         random.shuffle(video_paths)

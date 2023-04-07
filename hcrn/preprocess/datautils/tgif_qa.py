@@ -14,12 +14,12 @@ import numpy as np
 def load_video_paths(args):
     ''' Load a list of (path,image_id tuples).'''
     input_paths = []
-    annotation = pd.read_csv(args.annotation_file.format(args.question_type))
-    gif_names = list(annotation['gif_name'])
-    keys = list(annotation['vid_id'])
+    # annotation = pd.read_csv(args.annotation_file.format(args.question_type))
+    # gif_names = list(annotation['gif_name'])
+    # keys = list(annotation['vid_id'])
 
-    # gif_names = json.load(open("/data-ssd1/zhenglx/video_list.json"))
-    # keys = json.load(open("/data-ssd1/zhenglx/video_list.json"))
+    gif_names = json.load(open("data/anetqa/video_list.json"))
+    keys = json.load(open("data/anetqa/video_list.json"))
     print("Number of questions: {}".format(len(gif_names)))
     for idx, gif in enumerate(gif_names):
         # gif_abs_path = os.path.join(args.video_dir, ''.join([gif, '.gif']))

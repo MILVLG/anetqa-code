@@ -118,7 +118,7 @@ This repository contains code for our baselines HCRN, ClipBERT, and all-in-one. 
                      0.01,
                      62.99573696145125
                  ],
-                 "activitynet_label": "mopping the floor"
+                 "anet_label": "mopping the floor"
              },
              {
                  "duration": [
