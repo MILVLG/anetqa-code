@@ -122,12 +122,13 @@ class TGIFDataset(BaseDataset):
         # index, question_index = self.index_mapper[index]
         qid = index
         ques_id = sample["key"]
-        if self.split != "test":
-            answers, labels, scores = self.get_answer_label(sample)
-        else:
-            answers = list()
-            labels = list()
-            scores = list()
+        # if self.split != "test":
+        #     answers, labels, scores = self.get_answer_label(sample)
+        # else:
+        #     answers = list()
+        #     labels = list()
+        #     scores = list()
+        answers, labels, scores = self.get_answer_label(sample)
         
 
         return {
