@@ -5,6 +5,7 @@ import av
 import torch
 import numpy as np
 import lmdb
+import random
 from src.datasets import decoder
 from src.datasets.data_utils import (
     ImageResize, ImagePad, image_to_tensor)

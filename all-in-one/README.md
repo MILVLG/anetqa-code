@@ -58,7 +58,7 @@ For all-in-one, we sample the middle frames of each second from the video in the
 
   ```python
   meta_data/imgs --->{store_path}/imgs
-  meta_data/val_imgs	--->{store_path}/val_imgs
+  meta_data/val_imgs --->{store_path}/val_imgs
   ```
 
 - Download jsons that records the video duration and fps [here](), and place them `meta_data/tgif`

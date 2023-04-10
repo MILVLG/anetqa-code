@@ -82,7 +82,7 @@ def mk_tgif_qa_dataloader(task_type, anno_path, lmdb_dir, cfg, tokenizer,
         if task_type in ["action", "transition"]:
             d["options"] = raw_d["options"]
         elif task_type in ["frameqa", "msrvtt_qa"]:
-            d["answer_type"] = raw_d["answer_type"]
+            d["answer_type"] = raw_d["key"]
 
         datalist.append(d)
     LOGGER.info(f"datalist {len(datalist)}")
