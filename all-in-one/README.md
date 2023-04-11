@@ -50,9 +50,9 @@ For all-in-one, we sample the middle frames of each second from the video in the
 
 ## Sample Images
 
-- Download ActivityNet Videos [here](http://activity-net.org/) and train/val/test video list [here]()
+- Download ActivityNet Videos and train/val/test video list based on [dataset](https://github.com/MILVLG/anetqa-code/tree/main/dataset)
 
-- Use `sample_imgs_allinone.py` to sample images and place them in `data/acqa/frameqa`
+- Use `sample_imgs_allinone.py` to sample images and place them in `data/anetqa/frameqa`
 
 - Revise the path in `AllInOne\datasets\tgif.py` 
 
@@ -60,6 +60,15 @@ For all-in-one, we sample the middle frames of each second from the video in the
   meta_data/imgs --->{store_path}/imgs
   meta_data/val_imgs --->{store_path}/val_imgs
   ```
+
+## modify the file format of qa pairs
+
+```
+python aux_csv.py
+python aux_jsonl.py
+```
+
+place *.jsonl in`meta_data/anetqa/`
 
 ## Download Pretrained Weights
 
@@ -86,11 +95,11 @@ cp *.ckpt pretrained/
    python run.py with data_root=DataSet num_gpus=4 num_nodes=1 num_frames=3 per_gpu_batchsize=64 task_finetune_anetqa test_only=True load_path=${ckpt_path}
    ```
 
-#### View details of result
+3. View details of result
 
-Download the list of qa_id under different classification systems [here]()
-
-You can use them to analyze the details of the results
+   ```
+   python eval_res.py
+   ```
 
 #### Updated and added code files
 

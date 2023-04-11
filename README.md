@@ -8,7 +8,7 @@ see [dataset](https://github.com/MILVLG/anetqa-code/tree/main/dataset)
 
 ## Models
 
-see [hcrn](https://github.com/MILVLG/anetqa-code/tree/main/hcrn)， [ClipBert](https://github.com/MILVLG/anetqa-code/tree/main/ClipBERT)， [all-in-one](https://github.com/MILVLG/anetqa-code/tree/main/all-in-one)
+see [hcrn](https://github.com/MILVLG/anetqa-code/tree/main/hcrn), [ClipBert](https://github.com/MILVLG/anetqa-code/tree/main/ClipBERT), [all-in-one](https://github.com/MILVLG/anetqa-code/tree/main/all-in-one)
 
 ## Results
 

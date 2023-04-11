@@ -10,7 +10,7 @@ For ClipBERT, we randomly sample 5 sets of 4x2 frames  for training and uniforml
 
 ## Sample Images
 
-- Download ActivityNet Videos [here](http://activity-net.org/) and train/val/test video list [here]()
+- Download ActivityNet Videos and train/val/test video list based on [dataset](https://github.com/MILVLG/anetqa-code/tree/main/dataset)
 - Use `sample_imgs_clipbert.py` to sample images
 
 - Revise the path in `src\datasets\dataset_base.py` 
@@ -18,6 +18,15 @@ For ClipBERT, we randomly sample 5 sets of 4x2 frames  for training and uniforml
   ```python
   pickle.load(open(${img_path}),"rb")
   ```
+
+## modify the file format of qa pairs
+
+```
+python aux_csv.py
+python aux_jsonl.py
+```
+
+place *.jsonl in `ClipBERT/$PATH_TO_STORAGE` 
 
 ## Requirements
 
@@ -85,13 +94,13 @@ Our scripts require the user to have the [docker group membership](https://docs.
      --inference_n_clips 16 \
    ```
 
-   `$STEP` is an integer, which tells the script to use the checkpoint
+   `$STEP` is an integer, which tells the script to use the checkpoint (in our experiment `$STEP` is 163400)
 
-## View details of result
+3. View details of result:
 
-Download the list of qa_id under different classification systems [here]()
-
-You can use them to analyze the details of the results
+   ```
+   python eval_res.py
+   ```
 
 ## Updated and added code files
 

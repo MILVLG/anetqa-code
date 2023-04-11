@@ -12,6 +12,14 @@ conda install -c conda-forge scikit-video
 pip install -r requirements.txt
 ```
 
+## modify the file format of qa pairs
+
+```
+python aux_csv.py
+```
+
+place *.csv in `data/anetqa`
+
 ## Preprocessing visual features
 
 revise the `video_dir` in `preprocess/preprocess_feature.py`
@@ -66,11 +74,11 @@ Test:
 python validate.py --cfg configs/anetqa.yml
 ```
 
-## View details of result
+View details of result:
 
-Download the list of qa_id under different classification systems [here]()
-
-You can use them to analyze the details of the results
+```
+python eval_res.py
+```
 
 ## Updated and added code files
 

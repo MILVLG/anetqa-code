@@ -4,7 +4,7 @@ from tqdm import tqdm
 import pandas as pd
 import random
 
-balance_qa = json.load(open("../anetqa/anetqa_train.json"))+json.load(open("../anetqa/anetqa_val.json"))+json.load(open("../anetqa/anetqa_test.json"))
+balance_qa = json.load(open("../dataset/anetqa/anetqa_train.json"))+json.load(open("../dataset/anetqa/anetqa_val.json"))+json.load(open("../dataset/anetqa/anetqa_test.json"))
 keys=[]
 questions=[]
 answers=[]
@@ -17,9 +17,9 @@ for qa in tqdm(balance_qa):
         video[video_id]=[]
     video[video_id].append(qa)
 print(len(video))
-video_train =json.load(open("../jsons/video_train.json"))
-video_val = json.load(open("../jsons/video_val.json"))
-video_test =json.load(open("../jsons/video_test.json"))
+video_train =json.load(open("../dataset/jsons/video_train.json"))
+video_val = json.load(open("../dataset/jsons/video_val.json"))
+video_test =json.load(open("../dataset/jsons/video_test.json"))
 video_train_val=video_train+video_val
 
 for video_id in tqdm(video_train_val):
@@ -46,7 +46,7 @@ dic1 = {
 }
 df = pd.DataFrame(dic1)
 print("------dump-------")
-df.to_csv("../anetqa/data_train_val.csv")
+df.to_csv("data_train_val.csv")
 
 keys=[]
 questions=[]
@@ -78,7 +78,7 @@ dic1 = {
 }
 df = pd.DataFrame(dic1)
 print("------dump-------")
-df.to_csv("../anetqa/data_train.csv")
+df.to_csv("data_train.csv")
 
 keys=[]
 questions=[]
@@ -107,7 +107,7 @@ dic1 = {
 }
 df = pd.DataFrame(dic1)
 print("------dump-------")
-df.to_csv("../anetqa/data_val.csv")
+df.to_csv("data_val.csv")
 
 keys=[]
 questions=[]
@@ -135,4 +135,4 @@ dic2 = {
 }
 df = pd.DataFrame(dic2)
 print("------dump-------")
-df.to_csv("../anetqa/data_test.csv")
+df.to_csv("data_test.csv")

@@ -446,7 +446,7 @@ def task_finetune_tgifqa():
 @ex.named_config
 def task_finetune_anetqa():
     exp_name = "finetune_anetqa"
-    datasets = ["anetqa"]
+    datasets = ["tgif"]
     loss_names = _loss_names({"openend_vqa": 1})
     batch_size = 512
     msrvttqa_label_size = 12911  # vqa voculbary length 1540 + 1 background
