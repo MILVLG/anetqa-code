@@ -226,7 +226,7 @@ if __name__ == '__main__':
     # if args.dataset == 'tgif-qa':
     if args.dataset == 'anetqa':
         args.annotation_file = 'data/anetqa/data.csv'
-        args.video_dir = '../videos'
+        args.video_dir = '../dataset/videos'
         args.outfile = 'data/anetqa/{}/anetqa_{}_{}_feat.h5'
         video_paths = tgif_qa.load_video_paths(args)
         random.shuffle(video_paths)
