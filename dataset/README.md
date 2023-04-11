@@ -46,14 +46,14 @@ datasets
 │   └── anetqa_test.json
 ├── jsons
 │   ├── video_train.json
-|	├── video_val.json
-|	├── video_test.json
-|	├── anetqa_object_class.json
-|	├── anetqa_attribute_class.json
+|   ├── video_val.json
+|   ├── video_test.json
+|   ├── anetqa_object_class.json
+|   ├── anetqa_attribute_class.json
 │   └── anetqa_relationship_class.json
 └── scripts
-	├── aux_csv.py
-	├── aux.jsonl.py
+    ├── aux_csv.py
+├── aux.jsonl.py
     └── sample_frame_img.py
 ```
 
