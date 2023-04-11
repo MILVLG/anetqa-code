@@ -53,7 +53,7 @@ datasets
 │   └── anetqa_relationship_class.json
 └── scripts
     ├── aux_csv.py
-├── aux.jsonl.py
+    ├── aux.jsonl.py
     └── sample_frame_img.py
 ```
 
