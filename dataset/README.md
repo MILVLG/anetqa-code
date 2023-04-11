@@ -1,6 +1,6 @@
-## Dataset
+# Dataset
 
-### Videos&qa pairs
+## Videos&qa pairs
 
 - Download ActivityNet videos [here](http://activity-net.org/) and place them in `videos`
 
@@ -25,7 +25,7 @@
   python sample_frame_img.py
   ```
 
-### Scene Graph Format
+## Scene Graph Format
 
 ```json
 {...
@@ -141,7 +141,7 @@
 
 **Note: attributes have different formats depending on the singular or plural forms of objects.**
 
-### ANetQA Format
+## ANetQA Format
 
 - **train/val**
 
