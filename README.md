@@ -20,6 +20,8 @@ This repository contains code for our baselines HCRN, ClipBERT, and all-in-one. 
 
 - Download frame list from [here]()
 
+- Download video list from [here]()
+
 - modify the file format of qa pairs for training (need video list)
 
   ```
