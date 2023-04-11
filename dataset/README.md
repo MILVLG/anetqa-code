@@ -21,7 +21,7 @@
 
   place *.csv in `hcrn/data/anetqa`
 
-  place *.jsonl in `ClipBERT/` and `all-in-one/`
+  place *.jsonl in `ClipBERT/$PATH_TO_STORAGE` and `all-in-one/meta_data/anetqa/`
 
 - sample frames for visualization
 
