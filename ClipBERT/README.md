@@ -77,7 +77,7 @@ Our scripts require the user to have the [docker group membership](https://docs.
    ```
    # inside the container
    horovodrun -np 4 python src/tasks/run_video_qa.py \
-     --config src/configs/tgif_qa_frameqa_base_resnet50.json \
+     --config src/configs/anetqa_frameqa_base_resnet50.json \
      --do_inference 1 --output_dir ./result \
      --inference_split val --inference_model_step $STEP \
      --inference_txt_db /txt/data_test.jsonl \
