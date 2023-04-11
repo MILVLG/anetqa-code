@@ -18,7 +18,7 @@ see [hcrn](https://github.com/MILVLG/anetqa-code/tree/main/hcrn)， [ClipBert](h
 
 ## License
 
-ANetQA is released under the [Apache 2.0 license](https://github.com/facebookresearch/detectron2/blob/main/LICENSE).
+This project is licensed under the Apache License 2.0 - see the [LICENSE](https://github.com/MILVLG/anetqa-code/blob/main/LICENSE) file for details.
 
 ## Citing ANetQA 
 
