@@ -43,8 +43,6 @@ datasets
 |   ├── anetqa_relationship_class.json
 │   └── anetqa_frames_trainval.json
 └── scripts
-    ├── aux_csv.py
-    ├── aux.jsonl.py
     └── sample_frame_img.py
 ```
 
