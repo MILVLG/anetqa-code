@@ -63,18 +63,16 @@ Our scripts require the user to have the [docker group membership](https://docs.
 
 ## Run Model
 
-1. Finetuning.
+1. Finetuning
 
    ```
    # inside the container
    horovodrun -np 4 python src/tasks/run_video_qa.py \
-       --config src/configs/tgif_qa_frameqa_base_resnet50.json \
+       --config src/configs/anetqa_frameqa_base_resnet50.json \
        --output_dir ./result
    ```
 
-   **Note: as the anetqa format is similar to tgif-qa, the same config is used**
-
-2. Run inference.
+2. Run inference
 
    ```
    # inside the container

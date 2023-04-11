@@ -433,7 +433,22 @@ def task_finetune_tgifqa():
     datasets = ["tgif"]
     loss_names = _loss_names({"openend_vqa": 1})
     batch_size = 512
-    # msrvttqa_label_size = 1541  # vqa voculbary length 1540 + 1 background
+    msrvttqa_label_size = 1541  # vqa voculbary length 1540 + 1 background
+    # msrvttqa_label_size = 12911  # vqa voculbary length 1540 + 1 background
+    max_epoch = 20
+    max_steps = None
+    warmup_steps = 0.1
+    draw_false_image = 0
+    learning_rate = 1e-4  # 1e-4
+    val_check_interval = 1.0
+    lr_mult = 10
+
+@ex.named_config
+def task_finetune_anetqa():
+    exp_name = "finetune_anetqa"
+    datasets = ["anetqa"]
+    loss_names = _loss_names({"openend_vqa": 1})
+    batch_size = 512
     msrvttqa_label_size = 12911  # vqa voculbary length 1540 + 1 background
     max_epoch = 20
     max_steps = None

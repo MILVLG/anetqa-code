@@ -76,19 +76,17 @@ cp *.ckpt pretrained/
 
 ## Run Model
 
-Train
+1. Finetuning
 
-```
-python run.py with data_root=DataSet num_gpus=4 num_nodes=1 num_frames=3 per_gpu_batchsize=32 task_finetune_tgifqa load_path="pretrained/all-in-one-base.ckpt"
-```
+   ```
+   python run.py with data_root=DataSet num_gpus=4 num_nodes=1 num_frames=3 per_gpu_batchsize=32 task_finetune_anetqa load_path="pretrained/all-in-one-base.ckpt"
+   ```
 
-**Note: as the anetqa format is similar to tgif-qa, the same config is used**
+2. Run inference
 
-Test
-
-```
-python run.py with data_root=DataSet num_gpus=4 num_nodes=1 num_frames=3 per_gpu_batchsize=64 task_finetune_tgifqa test_only=True load_path=${ckpt_path}
-```
+   ```
+   python run.py with data_root=DataSet num_gpus=4 num_nodes=1 num_frames=3 per_gpu_batchsize=64 task_finetune_anetqa test_only=True load_path=${ckpt_path}
+   ```
 
 #### View details of result
 
