@@ -19,10 +19,6 @@ For ClipBERT, we randomly sample 5 sets of 4x2 frames  for training and uniforml
   pickle.load(open(${img_path}),"rb")
   ```
 
-## Download qa pairs
-
-Download qa pairs in .jsonl version [here]()
-
 ## Requirements
 
 We provide a Docker image for easier reproduction. Please install the following:

@@ -63,10 +63,6 @@ For all-in-one, we sample the middle frames of each second from the video in the
 
 - Download jsons that records the video duration and fps [here](), and place them `meta_data/tgif`
 
-## Download qa pairs
-
-Download qa pairs in .jsonl version [here]()
-
 ## Download Pretrained Weights
 
 Download **All-in-one-B** [here](https://drive.google.com/file/d/1z3g891ND6CGCUkVzCXr2647wVG-15uUS/view?usp=sharing)

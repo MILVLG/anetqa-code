@@ -12,15 +12,7 @@ conda install -c conda-forge scikit-video
 pip install -r requirements.txt
 ```
 
-## Download Features and qa pairs
-
-Download visual features from [here](), and place them in `data/anetqa/frameqa`
-
-Download qa pairs in .csv  version [here]()， and place them in `data/anetqa`
-
 ## Preprocessing visual features
-
-You can also extract features yourself as follows:
 
 revise the `video_dir` in `preprocess/preprocess_feature.py`
 

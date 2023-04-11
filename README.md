@@ -2,7 +2,7 @@
 
 This repository contains code for our baselines HCRN, ClipBERT, and all-in-one. For all three baselines, we used their code for the FrameQA questions in the TGIF-QA benchmark, then adjusted to fit our data structure. You can download ANetQA from our [website](https://milvlg.github.io/anetqa).
 
-## results
+## Results
 
 | val acc | hcrn  | ClipBERT | all-in-one-base |
 | ------- | ----- | -------- | --------------- |
@@ -10,13 +10,22 @@ This repository contains code for our baselines HCRN, ClipBERT, and all-in-one. 
 
 ## Data
 
-### Videos
+### Videos&qa pairs
 
 - Download ActivityNet videos [here](http://activity-net.org/)
+
 - Download our scene graph from our [website](https://milvlg.github.io/anetqa/)
+
 - Download our Question-Answer pairs from our [website](https://milvlg.github.io/anetqa/)
+
 - Download frame list from [here]()
-- Download video list from [here]() (hcrn may use it)
+
+- modify the file format of qa pairs for training (need video list)
+
+  ```
+  python aux_csv.json			#hcrn
+  python aux_jsonl.json		#clipbert all-in-one
+  ```
 
 ### Scene Graph Format
 
