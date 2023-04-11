@@ -1,6 +1,6 @@
 # Dataset
 
-## Videos&qa pairs
+## Videos and QA pairs
 
 - Download ActivityNet videos [here](http://activity-net.org/) and place them in `videos`
 
@@ -19,18 +19,50 @@
   python aux_jsonl.json		#ClipBERT all-in-one
   ```
 
+  place *.csv in `hcrn/data/anetqa`
+
+  place *.jsonl in `ClipBERT/` and `all-in-one/`
+
 - sample frames for visualization
 
   ```
   python sample_frame_img.py
   ```
 
+After that, the `datasets` folder will have the following structure:
+
+```
+datasets
+├── videos
+│   ├── ...
+│   ├── VIDEO_ID.mp4/mkv
+│   └── ...
+├── anetsg
+│   ├── anetsg_train.json 
+│   └── anetsg_val.json
+├── anetqa
+│   ├── anetqa_train.json
+|	├── anetqa_val.json
+│   └── anetqa_test.json
+├── jsons
+│   ├── video_train.json
+|	├── video_val.json
+|	├── video_test.json
+|	├── anetqa_object_class.json
+|	├── anetqa_attribute_class.json
+│   └── anetqa_relationship_class.json
+└── scripts
+	├── aux_csv.py
+	├── aux.jsonl.py
+    └── sample_frame_img.py
+```
+
 ## Scene Graph Format
 
 ```json
-{...
+{
      "v_onFddYAkyyc":{
-         "objects":{...
+         "objects":{
                     "v_onFddYAkyyc/0/4/53": {
                     "object_id": 53,
                     "object_class": "bathroom",
@@ -59,8 +91,8 @@
                     "segment_id": "0",
                     "frame_id": "4"
                 },
-         ...},
-         "attributes":{...
+         },
+         "attributes":{
                 "v_onFddYAkyyc/0/4/53": {
                     "attribute_class": "object",
                     "color": [
@@ -106,7 +138,7 @@
                     "occupation": "none",
                     "nationality": "none"
                 },
-         ...},
+         },
          "relationships":{
              {
                 "subject": "v_onFddYAkyyc/0/4/54",
@@ -118,7 +150,7 @@
                 "object": "v_onFddYAkyyc/0/4/55",
                 "relationship_type": "contact",
                 "relationship": "holding"},
-         ...},
+         },
          "actions":[            
              {
                  "duration": [
@@ -134,14 +166,14 @@
                  ],
                  "activity_caption": "a boy cleans a bathroom with a mop while dancing"
              }
-        ...]
+        ]
      }
-...}
+}
 ```
 
 **Note: attributes have different formats depending on the singular or plural forms of objects.**
 
-## ANetQA Format
+## QA Format
 
 - **train/val**
 
