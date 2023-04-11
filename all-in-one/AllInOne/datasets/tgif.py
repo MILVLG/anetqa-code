@@ -33,11 +33,11 @@ class TGIFDataset(BaseDataset):
         )
         # self.num_frames = 4
         self._load_metadata()
-        self.video_len=json.load(open("meta_data/tgif/video_len.json"))
-        self.video_fps=json.load(open("meta_data/tgif/video_fps.json"))
+        self.video_len=json.load(open("meta_data/anetqa/video_len.json"))
+        self.video_fps=json.load(open("meta_data/anetqa/video_fps.json"))
 
     def _load_metadata(self):
-        metadata_dir = './meta_data/tgif'
+        metadata_dir = './meta_data/anetqa'
         split_files = {
             'train': 'data_train.jsonl',
             'val': 'data_val.jsonl',  # frameqa_val.jsonl
