@@ -1,7 +1,7 @@
 import json
 from tqdm import tqdm
 
-val_qas = json.load(open("release_data/anetqa/anetqa_val.json"))
+val_qas = json.load(open("../dataset/anetqa/anetqa_val.json"))
 res_path=""
 res = json.load(open(f"{res_path}"))
 
@@ -31,8 +31,8 @@ for qa in tqdm(val_qas):
 
 ans={}
 for i in res:
-    qa_id = i["question_id"]
-    pred = i["pred"]
+    qa_id = i["q_id"]
+    pred = i["prediction"]
     gt = val_gt[qa_id]
     if pred==gt:
         ans[qa_id]=1
@@ -46,3 +46,7 @@ for tax in taxs:
         for j in tax[i]:
             count+=ans[j]
         print(i,count/len(tax[i]))
+count=0
+for i in ans:
+    count+=ans[i]
+print("overall",count/len(ans))
