@@ -2,39 +2,28 @@
 
 ## Videos and QA pairs
 
-- Download ActivityNet videos [here](http://activity-net.org/) and place them in `videos`
-
-- Download our scene graph from our [website](https://milvlg.github.io/anetqa/) and place them in `anetsg`
-
-- Download our Question-Answer pairs from our [website](https://milvlg.github.io/anetqa/) and place them in `anetqa`
-
-- Download [Meta information](https://awma1-my.sharepoint.com/:u:/g/personal/yuz_l0_tn/EZbBImoXyF1AstMYCqKwzIsBkfjoaYE2p9HtESIWaGDHmA?download=1) of all scene graphs and place them in `jsons`
-
-- Download [Meta information](https://awma1-my.sharepoint.com/:u:/g/personal/yuz_l0_tn/EYIaBMbntepBt2tiG7USPO8Byi3ap-MkltQNdtUh9vZ2_w?download=1) of all videos and place them in `jsons`
-
-- sample frames for visualization
-
-  ```
-  python sample_frame_img.py
-  ```
+1. Download ActivityNet videos [here](http://activity-net.org/) and unzip them into the `dataset/video` folder
+2. Download our scene graph from our [website](https://milvlg.github.io/anetqa/) and unzip them into the `dataset/sg` folder
+3. Download our Question-Answer pairs from our [website](https://milvlg.github.io/anetqa/) and unzip them into the `dataset/qa` folder
+4. Download [Meta information](https://awma1-my.sharepoint.com/:u:/g/personal/yuz_l0_tn/EZbBImoXyF1AstMYCqKwzIsBkfjoaYE2p9HtESIWaGDHmA?download=1) of all scene graphs and unzip them into the `dataset/meta` folder.
+5. Download [Meta information](https://awma1-my.sharepoint.com/:u:/g/personal/yuz_l0_tn/EYIaBMbntepBt2tiG7USPO8Byi3ap-MkltQNdtUh9vZ2_w?download=1) of all videos and unzip them into the `dataset/meta` folder.
   
-
-After that, the `datasets` folder will have the following structure:
+After that, the `dataset` folder will have the following structure:
 
 ```
-datasets
-├── videos
+dataset
+├── video
 │   ├── ...
-│   ├── VIDEO_ID.mp4/mkv
+│   ├── VIDEO_ID.mp4
 │   └── ...
-├── anetsg
+├── sg
 │   ├── anetqa_scenegraph_train.json 
 │   └── anetqa_scenegraph_val.json
-├── anetqa
+├── qa
 │   ├── anetqa_train.json
 |   ├── anetqa_val.json
 │   └── anetqa_test.json
-├── jsons
+├── meta
 │   ├── video_train.json
 |   ├── video_val.json
 |   ├── video_test.json
@@ -42,10 +31,14 @@ datasets
 |   ├── anetqa_attribute_class.json
 |   ├── anetqa_relationship_class.json
 │   └── anetqa_frames_trainval.json
-└── scripts
-    └── sample_frame_img.py
 ```
 
+After the data preparation, you can sample some selected frames and visualize the scene graph on it using the following script
+
+```
+python src/sample_frame_img.py
+```
+  
 ## Scene Graph Format
 
 ```json
@@ -160,39 +153,41 @@ datasets
 }
 ```
 
-**Note: attributes have different formats depending on the singular or plural forms of objects.**
+Note that attributes have slight different formats when the `crowds` option is set to different flags.
 
 ## QA Format
 
-- **train/val**
+The json files for the `train` and `val` sets have the following structure:
 
   ```
-  [...
-       {'question': 'At the beginning of the video, what color is the cat indoors which is lying?',
-        'answer': 'white',
-        'qa_id': 'v_m7cHlmcFk9Y#attrWhat#2',
-        'video_id': 'v_m7cHlmcFk9Y',
-        'frame_ids': ['v_m7cHlmcFk9Y/0/0'],
-        'object_ids': ['v_m7cHlmcFk9Y/0/0/52820'],
-        'question_type': 'attrWhat',
-        'attribute_type': 'color',
-        'step': 5,
-        'program': 'select(at the beginning of the video)->select(cat)->filter(location,indoors)->filter(status,lying)->query(color)'},
-   ...]
+  [
+       {
+            'question': 'At the beginning of the video, what color is the cat indoors which is lying?',
+            'answer': 'white',
+            'qa_id': 'v_m7cHlmcFk9Y#attrWhat#2',
+            'video_id': 'v_m7cHlmcFk9Y',
+            'frame_ids': ['v_m7cHlmcFk9Y/0/0'],
+            'object_ids': ['v_m7cHlmcFk9Y/0/0/52820'],
+            'question_type': 'attrWhat',
+            'attribute_type': 'color',
+            'step': 5,
+            'program': 'select(at the beginning of the video)->select(cat)->filter(location,indoors)->filter(status,lying)->query(color)'
+        },
+  ]
   ```
 
-- **test**
+while the json file for the `test` set has the following structure:
 
   ```
-  [...
-  	{
-          'question': 'Does the girl in the cloak appear at the end of the video?',
-    		'qa_id': 'v_Gq8-XVrlAt4#objExist#8503',
-    		'video_id': 'v_Gq8-XVrlAt4',
-    		'question_type': 'objExist',
-    		'attribute_type': 'none'}
+  [
+       {
+            'question': 'Does the girl in the cloak appear at the end of the video?',
+            'qa_id': 'v_Gq8-XVrlAt4#objExist#8503',
+            'video_id': 'v_Gq8-XVrlAt4',
+            'question_type': 'objExist',
+            'attribute_type': 'none'}
        }
-   ...]
+ ]
   ```
 
   
