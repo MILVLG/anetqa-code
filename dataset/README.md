@@ -245,6 +245,6 @@ The `q_test.json` file has the following structure:
    	],
    	'shape':[
    		attribute_class,
-   	],...
+   	],
    }
    ```
