@@ -197,7 +197,7 @@ The `q_test.json` file has the following structure:
             'question semantics': ['object'], 
             'reasoning skills': ['object-attribute', 'exist', 'superlative'], 
             'answer types': ['binary']
-   	   }
+        }
    }
 ]
 ```
