@@ -1,6 +1,6 @@
 # Code for ANetQA baselines
 
-This repository contains code for our baselines, namely hcrn, clipbert, and All-in-one, which is migrated from their original implementations to fit our data structure.
+This repository contains code for our baselines, namely HCRN, ClipBERT, and All-in-one, which is migrated from their original implementations to fit our data structure.
 
 ## Dataset Preparation 
 

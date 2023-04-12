@@ -7,7 +7,7 @@
 3. Download our Question-Answer pairs from our [website](https://milvlg.github.io/anetqa/) and unzip them into the `dataset/qa` folder
 4. Download [Meta information](https://awma1-my.sharepoint.com/:u:/g/personal/yuz_l0_tn/EZbBImoXyF1AstMYCqKwzIsBkfjoaYE2p9HtESIWaGDHmA?download=1) of all scene graphs and unzip them into the `dataset/meta` folder.
 5. Download [Meta information](https://awma1-my.sharepoint.com/:u:/g/personal/yuz_l0_tn/EYIaBMbntepBt2tiG7USPO8Byi3ap-MkltQNdtUh9vZ2_w?download=1) of all videos and unzip them into the `dataset/meta` folder.
-  
+
 After that, the `dataset` folder will have the following structure:
 
 ```
@@ -38,7 +38,7 @@ After the data preparation, you can sample some selected frames and visualize th
 ```
 python src/sample_frame_img.py
 ```
-  
+
 ## Scene Graph Format
 
 The `sg_train.json` and `sg_val.json` files have the following structure:
@@ -168,10 +168,10 @@ The `qa_train.json` and `qa_val.json` files have the following structure:
         'video_id': 'v_m7cHlmcFk9Y',
         'frame_ids': ['v_m7cHlmcFk9Y/0/0'],
         'object_ids': ['v_m7cHlmcFk9Y/0/0/52820'],
-        'question_type': 'attrWhat',
         'attribute_type': 'color',
         'step': 5,
-        'program': 'select(at the beginning of the video)->select(cat)->filter(location,indoors)->filter(status,lying)->query(color)'
+        'program': 'select(at the beginning of the video)->select(cat)->filter(location,indoors)->filter(status,lying)->query(color)',
+        'taxonomy': {'question structures': ['query'], 'question semantics': ['attribute'], 'reasoning skills': ['object-attribute', 'superlative'], 'answer types': ['open']}
     }
 ]
 ```
@@ -184,10 +184,55 @@ The `q_test.json` file has the following structure:
         'question': 'Does the girl in the cloak appear at the end of the video?',
         'qa_id': 'v_Gq8-XVrlAt4#objExist#8503',
         'video_id': 'v_Gq8-XVrlAt4',
-        'question_type': 'objExist',
-        'attribute_type': 'none'}
+        'attribute_type': 'none',
+        'taxonomy': {'question structures': ['verify'], 'question semantics': ['object'], 'reasoning skills': ['object-attribute', 'exist', 'superlative'], 'answer types': ['binary']}
    }
 ]
 ```
 
-  
+##   File Format
+
+1. video_train/val/test.json
+
+   record video ids of different subsets
+
+   ```
+   [
+   	VIDEO_ID
+   ]
+   ```
+
+2. frames_trainval.json
+
+   record time of the current frame in the video for visualization
+
+   ```
+   {
+   	VIDEO_ID/SEGMENT_ID/FRAME_ID:Time of the current frame in the video
+   }
+   ```
+
+3. object/relationship_class.json
+
+   record categories of objects/relationships that appear in the scene graph
+
+   ```
+   [
+   	object/relationship_class,
+   ]
+   ```
+
+4. attribute_class.json
+
+   record categories of attribute that appear in the scene graph
+
+   ```
+   {
+   	color:[
+   		attribute_class,	
+   	],
+   	shape:[
+   		attribute_class,
+   	],
+   }
+   ```

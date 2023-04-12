@@ -1,7 +1,7 @@
 import json
 from tqdm import tqdm
 
-val_qas = json.load(open("../dataset/anetqa/anetqa_val.json"))
+val_qas = json.load(open("../dataset/anetqa/qa_val.json"))
 res_path=""
 res = json.load(open(f"{res_path}"))
 
