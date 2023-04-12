@@ -173,10 +173,10 @@ The `qa_train.json` and `qa_val.json` files have the following structure:
         'program': 'select(at the beginning of the video)->select(cat)->filter(location,indoors)->filter(status,lying)->query(color)',
         'taxonomy': {
             'question_type':'attrWhat',
-            'question structures': ['query'], 
-            'question semantics': ['attribute'], 
+            'question structures': 'query', 
+            'question semantics': 'attribute', 
             'reasoning skills': ['object-attribute', 'superlative'], 
-            'answer types': ['open']
+            'answer types': 'open'
         }
     }
 ]
@@ -193,10 +193,10 @@ The `q_test.json` file has the following structure:
         'attribute_type': 'none',
         'taxonomy': {
             'question_type':'objExist',
-            'question structures': ['verify'], 
-            'question semantics': ['object'], 
+            'question structures': 'verify', 
+            'question semantics': 'object', 
             'reasoning skills': ['object-attribute', 'exist', 'superlative'], 
-            'answer types': ['binary']
+            'answer types': 'binary'
         }
    }
 ]
