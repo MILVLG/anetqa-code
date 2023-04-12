@@ -14,23 +14,23 @@ After that, the `dataset` folder will have the following structure:
 dataset
 ├── video
 │   ├── ...
-│   ├── VIDEO_ID.mp4
+│   ├── VIDEO_ID.mp4(mkv)
 │   └── ...
 ├── sg
-│   ├── anetqa_scenegraph_train.json 
-│   └── anetqa_scenegraph_val.json
+│   ├── sg_train.json 
+│   └── sg_val.json
 ├── qa
-│   ├── anetqa_train.json
-|   ├── anetqa_val.json
-│   └── anetqa_test.json
+│   ├── qa_train.json
+|   ├── qa_val.json
+│   └── q_test.json
 ├── meta
 │   ├── video_train.json
 |   ├── video_val.json
 |   ├── video_test.json
-|   ├── anetqa_object_class.json
-|   ├── anetqa_attribute_class.json
-|   ├── anetqa_relationship_class.json
-│   └── anetqa_frames_trainval.json
+|   ├── frames_trainval.json
+|   ├── object_class.json
+|   ├── attribute_class.json
+│   └── relationship_class.json
 ```
 
 After the data preparation, you can sample some selected frames and visualize the scene graph on it using the following script
@@ -41,6 +41,7 @@ python src/sample_frame_img.py
   
 ## Scene Graph Format
 
+The `sg_train.json` and `sg_val.json` files have the following structure:
 ```json
 {
      "v_onFddYAkyyc":{
@@ -152,42 +153,41 @@ python src/sample_frame_img.py
      }
 }
 ```
-
 Note that attributes have slight different formats when the `crowds` option is set to different flags.
 
 ## QA Format
 
-The json files for the `train` and `val` sets have the following structure:
+The `qa_train.json` and `qa_val.json` files have the following structure:
 
-  ```
-  [
-       {
-            'question': 'At the beginning of the video, what color is the cat indoors which is lying?',
-            'answer': 'white',
-            'qa_id': 'v_m7cHlmcFk9Y#attrWhat#2',
-            'video_id': 'v_m7cHlmcFk9Y',
-            'frame_ids': ['v_m7cHlmcFk9Y/0/0'],
-            'object_ids': ['v_m7cHlmcFk9Y/0/0/52820'],
-            'question_type': 'attrWhat',
-            'attribute_type': 'color',
-            'step': 5,
-            'program': 'select(at the beginning of the video)->select(cat)->filter(location,indoors)->filter(status,lying)->query(color)'
-        },
-  ]
-  ```
+```
+[
+   {
+        'question': 'At the beginning of the video, what color is the cat indoors which is lying?',
+        'answer': 'white',
+        'qa_id': 'v_m7cHlmcFk9Y#attrWhat#2',
+        'video_id': 'v_m7cHlmcFk9Y',
+        'frame_ids': ['v_m7cHlmcFk9Y/0/0'],
+        'object_ids': ['v_m7cHlmcFk9Y/0/0/52820'],
+        'question_type': 'attrWhat',
+        'attribute_type': 'color',
+        'step': 5,
+        'program': 'select(at the beginning of the video)->select(cat)->filter(location,indoors)->filter(status,lying)->query(color)'
+    }
+]
+```
 
-while the json file for the `test` set has the following structure:
+The `q_test.json` file has the following structure:
 
-  ```
-  [
-       {
-            'question': 'Does the girl in the cloak appear at the end of the video?',
-            'qa_id': 'v_Gq8-XVrlAt4#objExist#8503',
-            'video_id': 'v_Gq8-XVrlAt4',
-            'question_type': 'objExist',
-            'attribute_type': 'none'}
-       }
- ]
-  ```
+```
+[
+   {
+        'question': 'Does the girl in the cloak appear at the end of the video?',
+        'qa_id': 'v_Gq8-XVrlAt4#objExist#8503',
+        'video_id': 'v_Gq8-XVrlAt4',
+        'question_type': 'objExist',
+        'attribute_type': 'none'}
+   }
+]
+```
 
   
