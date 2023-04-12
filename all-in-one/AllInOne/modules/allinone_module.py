@@ -482,7 +482,14 @@ class AllinoneTransformerSS(pl.LightningModule):
         allinone_utils.set_task(self)
         output = self(batch)
 
+        ret = dict()
+        if self.hparams.config["loss_names"]["openend_vqa"] > 0:
+            ret.update(objectives.vqa_test_step(self, batch, output))
+        return ret
+
     def validation_epoch_end(self, outs):
+        if self.hparams.config["loss_names"]["openend_vqa"] > 0:
+            objectives.vqa_test_wrapup(outs,f"val_epoch_{self.current_epoch}")
         allinone_utils.epoch_wrapup(self)
 
     def test_step(self, batch, batch_idx):
