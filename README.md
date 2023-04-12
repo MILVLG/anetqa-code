@@ -22,9 +22,8 @@ The above models deliver the following results on `val` set.
 
 This project is licensed under the Apache License 2.0.
 
-## Citing ANetQA 
-
-If you use ANetQA in your research or wish to refer to the baseline results, please use the following BibTeX entry.
+## Citation
+If you use ANetQA in your research, we appreciate it if you cite our paper in the following.
 
 ```
 @inproceedings{yu2023anetqa,
