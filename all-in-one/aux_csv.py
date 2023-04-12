@@ -4,7 +4,7 @@ from tqdm import tqdm
 import pandas as pd
 import random
 
-balance_qa = json.load(open("../dataset/anetqa/anetqa_train.json"))+json.load(open("../dataset/anetqa/anetqa_val.json"))+json.load(open("../dataset/anetqa/anetqa_test.json"))
+balance_qa = json.load(open("../dataset/qa/qa_train.json"))+json.load(open("../dataset/qa/qa_val.json"))+json.load(open("../dataset/qa/qa_test.json"))
 keys=[]
 questions=[]
 answers=[]
@@ -17,9 +17,9 @@ for qa in tqdm(balance_qa):
         video[video_id]=[]
     video[video_id].append(qa)
 print(len(video))
-video_train =json.load(open("../dataset/jsons/video_train.json"))
-video_val = json.load(open("../dataset/jsons/video_val.json"))
-video_test =json.load(open("../dataset/jsons/video_test.json"))
+video_train =json.load(open("../dataset/meta/video_train.json"))
+video_val = json.load(open("../dataset/meta/video_val.json"))
+video_test =json.load(open("../dataset/meta/video_test.json"))
 video_train_val=video_train+video_val
 
 for video_id in tqdm(video_train_val):

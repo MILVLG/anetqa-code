@@ -1,7 +1,7 @@
 import json
 import os
 
-frames_trainval = json.load(open("../jsons/frames_trainval.json"))
+frames_trainval = json.load(open("../meta/frames_trainval.json"))
 
 for frame_ids in frames_trainval:
     ids=frame_ids.split("/")
