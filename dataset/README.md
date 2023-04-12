@@ -220,7 +220,7 @@ The `q_test.json` file has the following structure:
 
    ```
    {
-   	VIDEO_ID/SEGMENT_ID/FRAME_ID:Time of the current frame in the video
+   	'VIDEO_ID/SEGMENT_ID/FRAME_ID': Time of the current frame in the video
    }
    ```
 
@@ -240,11 +240,11 @@ The `q_test.json` file has the following structure:
 
    ```
    {
-   	color:[
+   	'color':[
    		attribute_class,	
    	],
-   	shape:[
+   	'shape':[
    		attribute_class,
-   	],
+   	],...
    }
    ```
