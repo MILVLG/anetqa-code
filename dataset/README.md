@@ -171,7 +171,13 @@ The `qa_train.json` and `qa_val.json` files have the following structure:
         'attribute_type': 'color',
         'step': 5,
         'program': 'select(at the beginning of the video)->select(cat)->filter(location,indoors)->filter(status,lying)->query(color)',
-        'taxonomy': {'question structures': ['query'], 'question semantics': ['attribute'], 'reasoning skills': ['object-attribute', 'superlative'], 'answer types': ['open']}
+        'taxonomy': {
+            'question_type':'attrWhat',
+            'question structures': ['query'], 
+            'question semantics': ['attribute'], 
+            'reasoning skills': ['object-attribute', 'superlative'], 
+            'answer types': ['open']
+        }
     }
 ]
 ```
@@ -185,7 +191,13 @@ The `q_test.json` file has the following structure:
         'qa_id': 'v_Gq8-XVrlAt4#objExist#8503',
         'video_id': 'v_Gq8-XVrlAt4',
         'attribute_type': 'none',
-        'taxonomy': {'question structures': ['verify'], 'question semantics': ['object'], 'reasoning skills': ['object-attribute', 'exist', 'superlative'], 'answer types': ['binary']}
+        'taxonomy': {
+            'question_type':'objExist',
+            'question structures': ['verify'], 
+            'question semantics': ['object'], 
+            'reasoning skills': ['object-attribute', 'exist', 'superlative'], 
+            'answer types': ['binary']
+   		}
    }
 ]
 ```
