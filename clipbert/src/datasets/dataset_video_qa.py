@@ -163,8 +163,8 @@ class ClipBertVideoQADataset(ClipBertBaseDataset):
 
             gt_data = self.qid2data[qid]
             gt_ans = gt_data["answer"]
-            if self.task_type in self.open_ended_qa_names:
-                answer_types.append(answer_type2idx[self.task_type][gt_data["answer_type"]])
+            # if self.task_type in self.open_ended_qa_names:
+            #     answer_types.append(answer_type2idx[self.task_type][gt_data["answer_type"]])
             gts.append(gt_ans)
 
         preds = np.array(preds)
