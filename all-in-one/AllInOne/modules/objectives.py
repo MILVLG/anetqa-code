@@ -1207,16 +1207,18 @@ def init_weights(module):
 
 
 def vqa_test_step(pl_module, batch, output):
-    id2answer = (
-        pl_module.trainer.datamodule.dm_dicts["vqa_trainval"].id2answer
-        if "vqa_trainval" in pl_module.trainer.datamodule.dm_dicts
-        else pl_module.trainer.datamodule.dm_dicts["vqa"].id2answer
-    )
+    # id2answer = (
+    #     pl_module.trainer.datamodule.dm_dicts["vqa_trainval"].id2answer
+    #     if "vqa_trainval" in pl_module.trainer.datamodule.dm_dicts
+    #     else pl_module.trainer.datamodule.dm_dicts["vqa"].id2answer
+    # )
+    vocab=json.load(open("meta_data/anetqa/anetqa_trainval_ans2label.json"))
+    id2answer = {v: k for k, v in vocab.items()}
     vqa_logits = output["vqa_logits"]
     vqa_preds = vqa_logits.argmax(dim=-1)
     vqa_preds = [id2answer[pred.item()] for pred in vqa_preds]
     questions = batch["text"]
-    qids = batch["ques_ids"]
+    qids = batch["ques_id"]
     return {"qids": qids, "preds": vqa_preds}
 
 

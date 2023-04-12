@@ -493,7 +493,7 @@ class AllinoneTransformerSS(pl.LightningModule):
         # #: for debug
         # total_loss = sum([v for k, v in output.items() if "loss" in k])
         # print(total_loss.item())
-        if self.hparams.config["loss_names"]["vqa"] > 0:
+        if self.hparams.config["loss_names"]["openend_vqa"] > 0:
             ret.update(objectives.vqa_test_step(self, batch, output))
 
         return ret
@@ -501,7 +501,7 @@ class AllinoneTransformerSS(pl.LightningModule):
     def test_epoch_end(self, outs):
         model_name = self.hparams.config["load_path"].split("/")[-1][:-5]
 
-        if self.hparams.config["loss_names"]["vqa"] > 0:
+        if self.hparams.config["loss_names"]["openend_vqa"] > 0:
             objectives.vqa_test_wrapup(outs, model_name)
         allinone_utils.epoch_wrapup(self)
 
