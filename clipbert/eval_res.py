@@ -11,24 +11,20 @@ reasoning={}
 ans_type={}
 val_gt={}
 for qa in tqdm(val_qas):
-    for i in qa["taxonomy"]["question structures"]:
-        if i not in structures:
-            structures[i]=[]
-        structures[i].append(qa["qa_id"])
-    for i in qa["taxonomy"]["question semantics"]:
-        if i not in semantics:
-            semantics[i]=[]
-        semantics[i].append(qa["qa_id"])
+    if qa["taxonomy"]["question structures"] not in structures:
+        structures[qa["taxonomy"]["question structures"]]=[]
+    structures[qa["taxonomy"]["question structures"]].append(qa["qa_id"])
+    if qa["taxonomy"]["question semantics"] not in semantics:
+        semantics[qa["taxonomy"]["question semantics"]]=[]
+    semantics[qa["taxonomy"]["question semantics"]].append(qa["qa_id"])
     for i in qa["taxonomy"]["reasoning skills"]:
         if i not in reasoning :
             reasoning [i]=[]
         reasoning [i].append(qa["qa_id"])
-    for i in qa["taxonomy"]["answer types"]:
-        if i not in ans_type:
-            ans_type[i]=[]
-        ans_type[i].append(qa["qa_id"])
+    if qa["taxonomy"]["answer types"] not in ans_type:
+        ans_type[qa["taxonomy"]["answer types"]]=[]
+    ans_type[qa["taxonomy"]["answer types"]].append(qa["qa_id"])
     val_gt[qa["qa_id"]]=qa["answer"]
-
 ans={}
 for i in res:
     qa_id = i["question_id"]
