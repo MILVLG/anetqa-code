@@ -1216,7 +1216,7 @@ def vqa_test_step(pl_module, batch, output):
     vqa_preds = vqa_logits.argmax(dim=-1)
     vqa_preds = [id2answer[pred.item()] for pred in vqa_preds]
     questions = batch["text"]
-    qids = batch["qid"]
+    qids = batch["ques_ids"]
     return {"qids": qids, "preds": vqa_preds}
 
 
