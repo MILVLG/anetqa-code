@@ -2,13 +2,7 @@
 
 ## Videos and QA pairs
 
-1. Download ActivityNet videos [here](http://activity-net.org/) and unzip them into the `dataset/video` folder
-2. Download our scene graph from our [website](https://milvlg.github.io/anetqa/) and unzip them into the `dataset/sg` folder
-3. Download our Question-Answer pairs from our [website](https://milvlg.github.io/anetqa/) and unzip them into the `dataset/qa` folder
-4. Download [Meta information](https://awma1-my.sharepoint.com/:u:/g/personal/yuz_l0_tn/EZbBImoXyF1AstMYCqKwzIsBkfjoaYE2p9HtESIWaGDHmA?download=1) of all scene graphs and unzip them into the `dataset/meta` folder.
-5. Download [Meta information](https://awma1-my.sharepoint.com/:u:/g/personal/yuz_l0_tn/EYIaBMbntepBt2tiG7USPO8Byi3ap-MkltQNdtUh9vZ2_w?download=1) of all videos and unzip them into the `dataset/meta` folder.
-
-After that, the `dataset` folder will have the following structure:
+Download the videos and dataset from [here](https://milvlg.github.io/anetqa/#Dataset), and unzip the files to form the folder structure as follows:
 
 ```
 dataset
@@ -33,13 +27,13 @@ dataset
 │   └── relationship_class.json
 ```
 
-After the data preparation, you can sample some selected frames and visualize the scene graph on it using the following script
+After the data preparation, you can use the following script to visualize the scene graph on selected frames.
 
 ```
-python src/sample_frame_img.py
+python script/sample_frame_img.py
 ```
 
-## Scene Graph Format
+## Scene Graph Files
 
 The `sg_train.json` and `sg_val.json` files have the following structure:
 ```json
@@ -155,7 +149,7 @@ The `sg_train.json` and `sg_val.json` files have the following structure:
 ```
 Note that attributes have slight different formats when the `crowds` option is set to different flags.
 
-## QA Format
+## QA Files
 
 The `qa_train.json` and `qa_val.json` files have the following structure:
 
@@ -202,49 +196,48 @@ The `q_test.json` file has the following structure:
 ]
 ```
 
-##   File Format
+## Meta information Files
 
-1. video_train/val/test.json
+`video_train.json`, `video_val.json`, and `video_test.json` contain the list of their corresponding video ids. 
 
-   record video ids of different subsets
+```
+[
+     VIDEO_ID,
+     ...
+]
+```
 
-   ```
-   [
-   	VIDEO_ID
-   ]
-   ```
+`frame_trainval.json` contains the selected frame in scene graphs
 
-2. frames_trainval.json
+```
+{
+     'VIDEO_ID/SEGMENT_ID/FRAME_ID':TIME,
+     ...
+}
+```
 
-   record time of the current frame in the video for visualization
+`object_class.json` and `relationship_class.json` contain the lists of object and relationship classes.
 
-   ```
-   {
-   	'VIDEO_ID/SEGMENT_ID/FRAME_ID': Time of the current frame in the video
-   }
-   ```
+```
+[
+     OBJECT_CLASS (RELATIONSHIP_CLASS),
+     ...
+]
+```
 
-3. object/relationship_class.json
+`attribute_class.json` contains a hierarchy of attribute classes
 
-   record categories of objects/relationships that appear in the scene graph
-
-   ```
-   [
-   	object/relationship_class,
-   ]
-   ```
-
-4. attribute_class.json
-
-   record categories of attribute that appear in the scene graph
-
-   ```
-   {
-   	'color':[
-   		attribute_class,	
-   	],
-   	'shape':[
-   		attribute_class,
-   	],
-   }
-   ```
+```
+{
+     'color':
+     [
+          attribute_class,
+          ...
+     ],
+     'shape':
+     [
+          attribute_class,
+          ...
+     ],
+}
+```
