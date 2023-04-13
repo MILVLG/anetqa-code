@@ -104,12 +104,8 @@ Our scripts require the user to have the [docker group membership](https://docs.
 
 ## Updated and added code files
 
-- hcrn\preprocess\preprocess_features.py
-- hcrn\preprocess\preprocess_questions.py
-- hcrn\preprocess\datautils\tgif_qa.py
 - src/task/run_video_qa.py
 - src/datasets/dataset_base.py
-- src/configs/tgif_qa_frameqa_base_resnet50.json
 - src/datasets/dataset_video_qa.py
 - src/utils/load_save.py
 
