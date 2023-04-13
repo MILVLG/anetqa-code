@@ -111,8 +111,16 @@ cp *.ckpt pretrained/
 
 - AllInOne/modules/objectives.py
 
-- meta_data/tgif/video_len.json
+- meta_data/anetqa/video_len.json
 
-- video_fps.json
+- meta_data/anetqa/video_fps.json
+
+- aux_csv.py
+
+- aux_jsonl.py
+
+- eval_res.py
+
+- sample_imgs_allinone.py
 
   

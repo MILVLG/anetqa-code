@@ -108,4 +108,10 @@ Our scripts require the user to have the [docker group membership](https://docs.
 - src/datasets/dataset_base.py
 - src/datasets/dataset_video_qa.py
 - src/utils/load_save.py
+- aux_csv.py
+- aux_jsonl.py
+
+- eval_res.py
+
+- sample_imgs_clipbert.py
 

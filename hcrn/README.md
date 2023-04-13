@@ -88,3 +88,5 @@ python eval_res.py
 - validate.py
 - preprocess/preprocess_question.py
 - preprocess/datautils/tgif_qa.py
+- aux_csv.py
+- eval_res.py
