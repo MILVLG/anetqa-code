@@ -583,6 +583,7 @@ def start_training(cfg):
                 qa_results, qa_scores = validate(
                     model, val_loader, cfg, global_step)
                 model_saver.save(step=global_step, model=model)
+                json.dump(qa_results,open(f"{cfg.output_dir}/val_{global_step}.json","w"))
         if global_step >= cfg.num_train_steps:
             break
 
@@ -594,7 +595,6 @@ def start_training(cfg):
         qa_results, qa_scores = validate(
             model, val_loader, cfg, global_step)
         model_saver.save(step=global_step, model=model)
-        json.dump(qa_results,open(f"{cfg.output_dir}/val_{global_step}.json","w"))
 
 def start_inference(cfg):
     set_random_seed(cfg.seed)
