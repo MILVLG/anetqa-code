@@ -199,14 +199,15 @@ if __name__ == '__main__':
 
             for idx in range(len(org_q_ids)):
                 dict[str(org_q_ids[idx])] = [org_v_names[idx], questions[idx], org_v_ids[idx]]
-            instances = [
-                {'video_id': video_id, 
-                'question_id': q_id, 
-                'q_id':dict[str(q_id)][2],
-                'video_name': str(dict[str(q_id)][0]), 
-                'question': [vocab[word.item()] for word in dict[str(q_id)][1] if word != 0],
-                'answer': answer,
-                'prediction': pred} for video_id, q_id, answer, pred in zip(np.hstack(v_ids).tolist(), np.hstack(q_ids).tolist(), gts, preds)]
+            # instances = [
+            #     {'video_id': video_id, 
+            #     'question_id': q_id, 
+            #     'q_id':dict[str(q_id)][2],
+            #     'video_name': str(dict[str(q_id)][0]), 
+            #     'question': [vocab[word.item()] for word in dict[str(q_id)][1] if word != 0],
+            #     'answer': answer,
+            #     'prediction': pred} for video_id, q_id, answer, pred in zip(np.hstack(v_ids).tolist(), np.hstack(q_ids).tolist(), gts, preds)]
+            instances = [{'question_id': dict[str(q_id)][2],'answer': pred} for video_id, q_id, answer, pred in zip(np.hstack(v_ids).tolist(), np.hstack(q_ids).tolist(), gts, preds)]
 
             # write preditions to json file
             with open(preds_file, 'w') as f:
