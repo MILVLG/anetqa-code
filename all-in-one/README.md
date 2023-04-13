@@ -107,6 +107,10 @@ cp *.ckpt pretrained/
 
 - AllInOne/config.py
 
+- AllInOne/modules/allinone_module.py
+
+- AllInOne/modules/objectives.py
+
 - meta_data/tgif/video_len.json
 
 - video_fps.json
