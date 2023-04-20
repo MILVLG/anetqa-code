@@ -434,7 +434,6 @@ def task_finetune_tgifqa():
     loss_names = _loss_names({"openend_vqa": 1})
     batch_size = 512
     msrvttqa_label_size = 1541  # vqa voculbary length 1540 + 1 background
-    # msrvttqa_label_size = 12911  # vqa voculbary length 1540 + 1 background
     max_epoch = 20
     max_steps = None
     warmup_steps = 0.1
@@ -449,7 +448,7 @@ def task_finetune_anetqa():
     datasets = ["tgif"]
     loss_names = _loss_names({"openend_vqa": 1})
     batch_size = 512
-    msrvttqa_label_size = 12911  # vqa voculbary length 1540 + 1 background
+    msrvttqa_label_size = 12985  # vqa voculbary length 1540 + 1 background
     max_epoch = 20
     max_steps = None
     warmup_steps = 0.1
