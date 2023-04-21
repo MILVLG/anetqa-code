@@ -17,12 +17,12 @@ The above models deliver the following results on `val` and `test-dev` set.
 |         | HCRN  | ClipBERT | All-in-one |
 | ------- | ----- | -------- | --------------- |
 | val      | 41.69 | 44.34    | 45.44      |
-| test-dev | 41.18 |          | 44.57      |
+| test-dev | 41.18 | 44.00    | 44.57      |
 
 |            | val set | test-dev set |                |
 | ---------- | ------- | ------------ | -------------- |
 | HCRN       | 41.69   | 41.18        | [checkpoint]() |
-| ClipBERT   | 44.34   |              | [checkpoint]() |
+| ClipBERT   | 44.34   | 44.00        | [checkpoint]() |
 | All-in-one | 45.44   | 44.57        | [checkpoint]() |
 
 ## License
