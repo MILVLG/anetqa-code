@@ -12,11 +12,12 @@ see the [HCRN](https://github.com/MILVLG/anetqa-code/tree/main/hcrn), [ClipBERT]
 
 ## Results
 
-The above models deliver the following results on `val` set.
+The above models deliver the following results on `val` and `test-dev` set.
 
 |         | HCRN  | ClipBERT | All-in-one |
 | ------- | ----- | -------- | --------------- |
-| overall | 41.69 | 44.34    | 45.44           |
+| val | 41.69 | 44.34    | 45.44           |
+| test-dev |  |  | 44.57 |
 
 ## License
 
