@@ -218,7 +218,8 @@ def forward_step(model, batch, cfg):
 def validate(model, val_loader, cfg, train_global_step, eval_score=True):
     """use eval_score=False when doing inference on test sets where answers are not available"""
     model.eval()
-
+    answer2label=json.load(open("storage/txt_db/anetqa_trainval_ans2label.json"))
+    label2answer=[i for i in answer2label]
     loss = 0.
     n_ex = 0
     qa_results = []
@@ -282,10 +283,9 @@ def validate(model, val_loader, cfg, train_global_step, eval_score=True):
             pred_labels = preds.data.squeeze().tolist()
         for qid, pred_label in zip(question_ids, pred_labels):
             qa_results.append(dict(
-                question_id=qid,
-                answer=pred_label,
-                data=val_loader.dataset.qid2data[qid]
-            ))
+                question_id=val_loader.dataset.qid2data[qid]["answer_type"],
+                answer=label2answer[pred_label]            
+                ))
         pbar.update(1)
         if cfg.debug and val_step >= debug_step:
             break
