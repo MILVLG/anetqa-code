@@ -62,23 +62,25 @@ revise the `video_dir` in `preprocess/preprocess_feature.py`
 
 ## Run model
 
-Train:
+1. Train:
 
-```
-python train.py --cfg configs/anetqa.yml
-```
+   ```
+   python train.py --cfg configs/anetqa.yml
+   ```
 
-Test:
+2. Test:
 
-```
-python validate.py --cfg configs/anetqa.yml
-```
+   ```
+   python validate.py --cfg configs/anetqa.yml
+   ```
 
-View details of result:
+   If you want to use our checkpoint for testing, you can change the checkpoint path in `validate.py` on `line 96`
 
-```
-python eval_res.py
-```
+3. View details of result:
+
+   ```
+   python eval_res.py
+   ```
 
 ## Updated and added code files
 

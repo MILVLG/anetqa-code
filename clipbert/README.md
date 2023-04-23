@@ -96,6 +96,8 @@ Our scripts require the user to have the [docker group membership](https://docs.
 
    `$STEP` is an integer, which tells the script to use the checkpoint (in our experiment `$STEP` is 163400)
 
+   If you want to use our checkpoint for testing, you can change the checkpoint path in `src/tasks/run_video_qa.py` on `line 632`
+
 3. View details of result:
 
    ```
