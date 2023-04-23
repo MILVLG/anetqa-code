@@ -15,10 +15,10 @@ see the [HCRN](https://github.com/MILVLG/anetqa-code/tree/main/hcrn), [ClipBERT]
 The above models deliver the following results on `val` and `test-dev` set.
 
 |            | val set | test-dev set |                                                              |
-| ---------- | ------- | ------------ | ------------------------------------------------------------ |
-| HCRN       | 41.69   | 41.18        | [checkpoint](https://awma1-my.sharepoint.com/:u:/g/personal/yuz_l0_tn/EXG7rl98VrhGvCASI1y5b70BcnyzfUIw29kuPZHTKynNpA?download=1) |
-| ClipBERT   | 44.34   | 44.00        | [checkpoint](https://awma1-my.sharepoint.com/:u:/g/personal/yuz_l0_tn/EWGADCgnjcxNrmOPWVygTWgB1wLGSwax7sdhTsJFo6ePGA?download=1) |
-| All-in-one | 45.44   | 44.57        | [checkpoint](https://awma1-my.sharepoint.com/:u:/g/personal/yuz_l0_tn/Ef6FyFoXsrNEpE41IhzcnuoBNFJNRUJaAwpQG4uBUCjugg?download=1) |
+| ---------- | :-----: | :----------: | :----------------------------------------------------------: |
+| HCRN       |  41.69  |    41.18     | [ckpt](https://awma1-my.sharepoint.com/:u:/g/personal/yuz_l0_tn/EXG7rl98VrhGvCASI1y5b70BcnyzfUIw29kuPZHTKynNpA?download=1) |
+| ClipBERT   |  44.34  |    44.00     | [ckpt](https://awma1-my.sharepoint.com/:u:/g/personal/yuz_l0_tn/EWGADCgnjcxNrmOPWVygTWgB1wLGSwax7sdhTsJFo6ePGA?download=1) |
+| All-in-one |  45.44  |    44.57     | [ckpt](https://awma1-my.sharepoint.com/:u:/g/personal/yuz_l0_tn/Ef6FyFoXsrNEpE41IhzcnuoBNFJNRUJaAwpQG4uBUCjugg?download=1) |
 
 ## License
 
