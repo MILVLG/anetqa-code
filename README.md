@@ -14,8 +14,8 @@ see the [HCRN](https://github.com/MILVLG/anetqa-code/tree/main/hcrn), [ClipBERT]
 
 The above baseline models are trained on the `train` set and evaluated on the `val` and `test-dev` sets, respectively.
 
-|            | val set | test-dev | model                                                             |
-| ---------- | :-----: | :----------: | :----------------------------------------------------------: |
+|   model         | val set | test-dev |  weights                                                            |
+| :----------: | :-----: | :----------: | :----------------------------------------------------------: |
 | HCRN       |  41.69  |    41.18     | [ckpt](https://awma1-my.sharepoint.com/:u:/g/personal/yuz_l0_tn/EXG7rl98VrhGvCASI1y5b70BcnyzfUIw29kuPZHTKynNpA?download=1) |
 | ClipBERT   |  44.34  |    44.00     | [ckpt](https://awma1-my.sharepoint.com/:u:/g/personal/yuz_l0_tn/EWGADCgnjcxNrmOPWVygTWgB1wLGSwax7sdhTsJFo6ePGA?download=1) |
 | All-in-one |  45.44  |    44.57     | [ckpt](https://awma1-my.sharepoint.com/:u:/g/personal/yuz_l0_tn/Ef6FyFoXsrNEpE41IhzcnuoBNFJNRUJaAwpQG4uBUCjugg?download=1) |
