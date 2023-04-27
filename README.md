@@ -12,7 +12,7 @@ see the [HCRN](https://github.com/MILVLG/anetqa-code/tree/main/hcrn), [ClipBERT]
 
 ## Results
 
-The above baseline models are trained on the `train` set and evaluated on the `val` and `test-dev` sets, respectively.
+The above baseline models are trained on the `train` set and evaluated on the `val`,`test-dev` and `test` sets, respectively.
 
 |   model         | val set | test-dev | test |  weights                                                            |
 | :----------: | :-----: | :----------: | :----------------------------------------------------------: | ------------------------------------------------------------ |
