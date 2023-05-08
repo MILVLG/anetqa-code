@@ -1,6 +1,6 @@
 # all-in-one
 
-Find the code and set-up instructions on the [all-in-one Github](https://github.com/showlab/all-in-one)
+The All-in-one implementation is derived from the [official repo](https://github.com/showlab/all-in-one) and adapt to ANetQA.
 
 ## Install Dependencies
 
@@ -100,27 +100,4 @@ cp *.ckpt pretrained/
    ```
    python eval_res.py
    ```
-
-#### Updated and added code files
-
-- AllInOne/datasets/tgif.py
-
-- AllInOne/config.py
-
-- AllInOne/modules/allinone_module.py
-
-- AllInOne/modules/objectives.py
-
-- meta_data/anetqa/video_len.json
-
-- meta_data/anetqa/video_fps.json
-
-- aux_csv.py
-
-- aux_jsonl.py
-
-- eval_res.py
-
-- sample_imgs_allinone.py
-
   
