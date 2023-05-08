@@ -1,6 +1,6 @@
 # ClipBERT
 
-Find the code and set-up instructions on the [ClipBERT Github](https://github.com/jayleicn/ClipBERT)
+The ClipBERT implementation is derived from the [official repo](https://github.com/jayleicn/ClipBERT) and adapt to ANetQA.
 
 ## Images
 
@@ -103,17 +103,3 @@ Our scripts require the user to have the [docker group membership](https://docs.
    ```
    python eval_res.py
    ```
-
-## Updated and added code files
-
-- src/task/run_video_qa.py
-- src/datasets/dataset_base.py
-- src/datasets/dataset_video_qa.py
-- src/utils/load_save.py
-- aux_csv.py
-- aux_jsonl.py
-
-- eval_res.py
-
-- sample_imgs_clipbert.py
-
