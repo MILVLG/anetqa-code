@@ -1,6 +1,6 @@
 # HCRN
 
-Find the code and set-up instructions on the [HCRN Github](https://github.com/thaolmk54/hcrn-videoqa)
+The HCRN implementation is derived from the [official repo](https://github.com/thaolmk54/hcrn-videoqa) and adapt to ANetQA
 
 ## Install Dependencies
 
@@ -81,14 +81,3 @@ revise the `video_dir` in `preprocess/preprocess_feature.py`
    ```
    python eval_res.py
    ```
-
-## Updated and added code files
-
-- configs/anetqa.yml
-- DataLoader.py
-- train.py
-- validate.py
-- preprocess/preprocess_question.py
-- preprocess/datautils/tgif_qa.py
-- aux_csv.py
-- eval_res.py
