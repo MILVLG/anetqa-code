@@ -18,7 +18,7 @@ The above baseline models are trained on the `train` set and evaluated on the `v
 | :----------: | :-----: | :----------: | :----------: | :----------------------------------------------------------: | ------------------------------------------------------------ |
 | HCRN       |  41.69  |    41.57     |    41.18     |    41.13    | [ckpt](https://awma1-my.sharepoint.com/:u:/g/personal/yuz_l0_tn/EXG7rl98VrhGvCASI1y5b70BcnyzfUIw29kuPZHTKynNpA?download=1) |
 | ClipBERT   |  44.34  |              |    44.00     |    43.91    | [ckpt](https://awma1-my.sharepoint.com/:u:/g/personal/yuz_l0_tn/EWGADCgnjcxNrmOPWVygTWgB1wLGSwax7sdhTsJFo6ePGA?download=1) |
-| All-in-one |  45.44  |              |    44.57     |    44.53    | [ckpt](https://awma1-my.sharepoint.com/:u:/g/personal/yuz_l0_tn/Ef6FyFoXsrNEpE41IhzcnuoBNFJNRUJaAwpQG4uBUCjugg?download=1) |
+| All-in-one |  45.44  |    44.27     |    44.57     |    44.53    | [ckpt](https://awma1-my.sharepoint.com/:u:/g/personal/yuz_l0_tn/Ef6FyFoXsrNEpE41IhzcnuoBNFJNRUJaAwpQG4uBUCjugg?download=1) |
 
 ## License
 
