@@ -8,7 +8,7 @@ see [dataset](https://github.com/MILVLG/anetqa-code/tree/main/dataset) for detai
 
 ## Model Setup, Training, and Testing
 
-see the [HCRN](https://github.com/MILVLG/anetqa-code/tree/main/hcrn), [ClipBERT](https://github.com/MILVLG/anetqa-code/tree/main/ClipBERT), and [All-in-one](https://github.com/MILVLG/anetqa-code/tree/main/all-in-one) folders for details.
+see the [HCRN](https://github.com/MILVLG/anetqa-code/tree/main/hcrn), [ClipBERT](https://github.com/MILVLG/anetqa-code/tree/main/clipbert), and [All-in-one](https://github.com/MILVLG/anetqa-code/tree/main/all-in-one) folders for details.
 
 ## Results
 
